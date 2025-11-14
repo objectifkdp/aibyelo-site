@@ -5,397 +5,906 @@
   <title>AI by Elo – IA, contenu & automatisation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="AI by Elo – IA appliquée au contenu, au marketing et à l’automatisation. Portfolio & services d’Élodie, basée entre Paris et Dubaï." />
+
+  <!-- Police chic + lisible -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0b0603; /* brun très profond */
-      color: #fef9f3;
+    :root {
+      /* Palette luxe brun / beige / doré */
+      --bg-main: #0f0a07;          /* fond très sombre */
+      --bg-soft: #20130f;          /* blocs sombres */
+      --beige:   #f3e5d0;
+      --beige-soft: #e4d3bd;
+      --brown:   #3d241a;
+      --brown-deep: #24100a;
+      --gold:    #cda676;
+      --text-main: #f7f3ee;
+      --text-soft: #e4ddd5;
+      --text-muted: #b0a79c;
+      --border-soft: rgba(255,255,255,0.08);
+      --shadow-soft: 0 18px 45px rgba(0,0,0,0.65);
+      --radius-lg: 22px;
+      --radius-md: 16px;
     }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #2b1810 0, #0b0503 55%, #050308 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ---------- Layout global ---------- */
 
     header {
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      background: rgba(22, 12, 6, 0.92);
-      backdrop-filter: blur(16px);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
+      background: rgba(5, 3, 5, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
+
     .nav {
-      max-width: 1100px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0.9rem 1.5rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
     }
+
     .logo {
-      font-weight: 700;
-      letter-spacing: 0.18em;
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      font-size: 0.8rem;
+      color: var(--beige);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
     }
-    .logo span {
-      display: inline-block;
-      padding: 0.2rem 0.6rem;
+
+    .logo-dot {
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      margin-right: 0.5rem;
-      background: linear-gradient(135deg, #f4d6a6, #b28b5b);
-      color: #2b170b;
-      font-weight: 800;
+      background: linear-gradient(135deg, #f9f5ec, var(--gold));
     }
+
     .nav-links {
       display: flex;
-      gap: 1.4rem;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+      align-items: center;
+      gap: 1.35rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
     }
+
     .nav-links a {
-      color: rgba(255,255,255,0.75);
+      position: relative;
+      padding-bottom: 0.15rem;
     }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.15rem;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), var(--beige-soft));
+      transition: width 0.2s ease;
+    }
+
     .nav-links a:hover {
-      color: #f4d6a6;
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: radial-gradient(circle at top left, rgba(205,166,118,0.18), transparent 60%);
+      color: var(--beige-soft);
     }
 
     main {
-      max-width: 1100px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
+      padding: 2.5rem 1.5rem 4.5rem;
     }
+
+    section {
+      margin-top: 3.3rem;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    /* ---------- HERO ---------- */
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 2.5rem;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2.4rem;
       align-items: center;
+      margin-top: 1.5rem;
     }
+
     .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
       padding: 0.25rem 0.7rem;
       border-radius: 999px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.7rem;
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 1rem;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      background: linear-gradient(90deg, rgba(223,190,143,0.15), rgba(23,15,9,0.8));
+      margin-bottom: 1.1rem;
     }
+
     .hero-tag-dot {
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: #facc6b;
+      background: var(--gold);
     }
-    h1 {
-      font-size: clamp(2.4rem, 4vw, 3.2rem);
-      margin: 0 0 0.8rem;
-      line-height: 1.1;
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4.1vw, 3.3rem);
+      line-height: 1.12;
+      margin-bottom: 0.8rem;
     }
-    h1 span {
-      color: #f4d6a6;
+
+    .hero h1 span {
+      color: var(--gold);
     }
+
     .hero-sub {
       font-size: 0.98rem;
+      color: var(--text-soft);
       max-width: 34rem;
-      color: rgba(255,255,255,0.72);
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.6rem;
     }
+
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
       margin-bottom: 2rem;
     }
+
     .badge {
-      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      padding: 0.32rem 0.72rem;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.12);
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.82);
-      background: rgba(0,0,0,0.35);
+      background: rgba(20,12,8,0.9);
+      color: var(--text-muted);
     }
-    .cta-row {
+
+    .badge-strong {
+      color: var(--beige);
+      border-color: rgba(205,166,118,0.6);
+      background: radial-gradient(circle at top left, rgba(205,166,118,0.3), rgba(18,10,5,0.95));
+    }
+
+    .hero-cta-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.9rem;
-      align-items: center;
-      margin-bottom: 2.5rem;
-    }
-    .btn-primary, .btn-ghost {
-      padding: 0.75rem 1.3rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      border: 1px solid transparent;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #f4d6a6, #b28b5b);
-      color: #2b170b;
-      border-color: rgba(250, 204, 140, 0.8);
-      box-shadow: 0 14px 35px rgba(0,0,0,0.65);
-    }
-    .btn-ghost {
-      background: rgba(0,0,0,0.35);
-      border-color: rgba(255,255,255,0.16);
-      color: #fef9f3;
-    }
-    .cta-note {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.6);
     }
 
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: rgba(255,255,255,0.55);
-    }
-    .hero-meta strong {
-      display: block;
+    .btn-primary, .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
       font-size: 0.9rem;
-      color: #f4d6a6;
-      letter-spacing: 0.14em;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f9f1e3, #e5c89b, #cda676);
+      color: #2a190e;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255,255,255,0.22);
+      color: var(--text-soft);
+      background: rgba(17,10,7,0.8);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(37,22,16,0.95);
+    }
+
+    .hero-note {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
     .hero-right {
-      border-radius: 1.5rem;
-      overflow: hidden;
-      background: radial-gradient(circle at top left, #f4d6a6 0, #3a2313 45%, #0b0603 100%);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 1.1rem;
-      box-shadow: 0 26px 70px rgba(0,0,0,0.8);
-    }
-    .phone-frame {
-      border-radius: 1.2rem;
-      background: #111827;
-      padding: 0.9rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      max-width: 320px;
-      margin: 0 auto;
-    }
-    .phone-screen {
-      border-radius: 0.9rem;
-      overflow: hidden;
-      background: #111827;
-      border: 1px solid rgba(255,255,255,0.16);
-    }
-    .phone-top {
-      height: 24px;
-      background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.1));
-    }
-    .phone-content {
-      padding: 0.9rem 0.9rem 1.1rem;
-    }
-    .phone-tag {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 0.35rem;
-    }
-    .phone-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-    .phone-sub {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 0.7rem;
-    }
-    .phone-pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-bottom: 0.8rem;
-    }
-    .phone-pill {
-      font-size: 0.68rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.22);
-    }
-    .phone-footer {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.6);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: relative;
     }
 
-    section {
-      margin-top: 3rem;
+    .hero-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: radial-gradient(circle at top left, rgba(249,241,227,0.12), rgba(10,6,4,0.98));
+      padding: 1.1rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
     }
-    h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.4rem;
+
+    .hero-photo {
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #41241c, #694331);
+      border: 1px solid rgba(255,255,255,0.18);
+      min-height: 240px;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.1rem 1.1rem 1.3rem;
+      color: var(--beige);
+      position: relative;
+      overflow: hidden;
     }
-    .section-sub {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 1.4rem;
+
+    /* 👉 Tu pourras remplacer ce fond par une vraie photo :
+       Ajoute par ex :
+       background-image: url('https://ton-image.jpg');
+       background-size: cover;
+       background-position: center;
+    */
+
+    .hero-photo-tag {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.88;
     }
-    .grid {
+
+    .hero-photo-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 0.15rem;
+    }
+
+    .hero-photo-role {
+      font-size: 0.86rem;
+      color: #f5e7d5;
+      opacity: 0.9;
+    }
+
+    .hero-photo-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(5,3,3,0.82);
+      border: 1px solid rgba(255,255,255,0.34);
+      font-size: 0.76rem;
+    }
+
+    .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.1rem;
+      gap: 0.7rem;
+      margin-top: 0.9rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
-    .card {
-      border-radius: 1rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 1rem;
-      background: radial-gradient(circle at top left, rgba(244,214,166,0.09), rgba(0,0,0,0.7));
+
+    .hero-stat {
+      padding: 0.55rem 0.7rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(7,4,3,0.9);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--beige);
+    }
+
+    /* ---------- SECTION TITRES ---------- */
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.45rem;
+    }
+
+    .section-heading p {
       font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 24rem;
     }
-    .card h3 {
-      font-size: 1rem;
-      margin: 0 0 0.4rem;
-    }
-    .card p {
-      margin: 0;
-      color: rgba(255,255,255,0.7);
-      font-size: 0.86rem;
-    }
+
+    /* ---------- SERVICES ---------- */
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-    .service {
-      border-radius: 1rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 1rem;
-      background: rgba(0,0,0,0.65);
-      font-size: 0.88rem;
-    }
-    .service-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-      font-size: 0.83rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.7);
-    }
-    .service-title {
-      font-weight: 600;
-      color: #f4d6a6;
-    }
-    .service-body {
-      color: rgba(255,255,255,0.76);
-      margin-bottom: 0.6rem;
-    }
-    .service-tagline {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.6);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
     }
 
-    .bottom-cta {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
+    .card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: radial-gradient(circle at top left, rgba(255,245,230,0.06), rgba(10,5,4,0.98));
+      padding: 1.1rem 1.1rem 1.2rem;
+      box-shadow: 0 16px 35px rgba(0,0,0,0.6);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 0.7rem;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .card ul li::before {
+      content: "•";
+      color: var(--gold);
+      margin-right: 0.35rem;
+    }
+
+    .card-footer {
+      margin-top: 0.85rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      font-size: 0.78rem;
+      color: var(--beige-soft);
+    }
+
+    /* ---------- PROCESS ---------- */
+
+    .process {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, #3b2419, #160b08);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 1.4rem 1.4rem 1.6rem;
+      box-shadow: var(--shadow-soft);
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
       gap: 2rem;
       align-items: center;
     }
-    .bottom-note {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.7);
-      max-width: 30rem;
+
+    .process p {
+      font-size: 0.92rem;
+      color: #f5e7d7;
     }
-    .badge-soft {
-      display: inline-flex;
+
+    .process-steps {
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.86rem;
+      color: var(--beige-soft);
+    }
+
+    .step {
+      padding: 0.6rem 0.7rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(9,5,4,0.9);
+      display: flex;
+      gap: 0.7rem;
+    }
+
+    .step-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.4);
+      display: flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .step strong {
+      display: block;
+      font-size: 0.92rem;
+      margin-bottom: 0.08rem;
+    }
+
+    /* ---------- CONTACT ---------- */
+
+    .contact {
+      border-radius: var(--radius-lg);
       border: 1px solid rgba(255,255,255,0.14);
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 0.7rem;
+      background: radial-gradient(circle at top right, rgba(229,200,155,0.18), rgba(8,5,4,0.98));
+      padding: 1.3rem 1.3rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1.1fr);
+      gap: 1.9rem;
+      align-items: center;
     }
-    .badge-soft-dot {
-      width: 6px;
-      height: 6px;
+
+    .contact p {
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      max-width: 30rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .contact-info a {
+      color: var(--beige-soft);
+      text-decoration: underline;
+      text-decoration-color: rgba(205,166,118,0.7);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .contact-taglist {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .contact-tag {
+      padding: 0.22rem 0.55rem;
       border-radius: 999px;
-      background: #22c55e;
+      border: 1px solid rgba(255,255,255,0.12);
     }
+
+    /* ---------- FOOTER ---------- */
 
     footer {
-      padding: 1.8rem 1.5rem 2.3rem;
       border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.55);
-      text-align: center;
-    }
-    footer a {
-      color: #f4d6a6;
+      padding: 1.2rem 1.5rem 1.7rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #050305;
     }
 
-    @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 900px) {
+      .hero,
+      .process,
+      .contact {
+        grid-template-columns: minmax(0,1fr);
       }
+
+      .hero {
+        gap: 1.9rem;
+      }
+
       .hero-right {
         order: -1;
       }
-      .grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+
       .services-grid {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0,1fr);
       }
-      .bottom-cta {
-        grid-template-columns: minmax(0, 1fr);
+
+      .nav {
+        padding-inline: 1.1rem;
       }
+
+      main {
+        padding-inline: 1.1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
       .nav-links {
         display: none;
       }
-      main {
-        padding-top: 2rem;
+
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2,minmax(0,1fr));
       }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="nav">
-      <div class="logo">
-        <span>AI</span> BY ELO
-      </div>
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<header>
+  <div class="nav">
+    <div class="logo">
+      <span class="logo-dot"></span>
+      <span>AI BY ELO</span>
     </div>
-  </header>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">À propos</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Parler de votre projet</a>
+  </div>
+</header>
 
-    footer>
-    <div>© <span id="year"></span> AI by Elo – Élodie. Tous droits réservés.</div>
-    <div>Basée entre Paris &amp; Dubaï • IA, contenu &amp; automatisation au service de votre marque.</div>
-  </footer>
+<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div>
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        IA appliquée • Contenu • Automatisation
+      </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+      <h1>
+        Une <span>stratégie IA & contenu</span> pensée pour faire grandir votre marque – pas votre to-do list.
+      </h1>
+
+      <p class="hero-sub">
+        Je m’appelle Élodie, j’aide les marques ambitieuses, solopreneurs et expertes à structurer leur contenu,
+        optimiser leurs systèmes et mettre l’IA au service de leurs objectifs – sans perdre leur voix ni leur élégance.
+      </p>
+
+      <div class="hero-badges">
+        <div class="badge badge-strong">Paris ⇄ Dubaï</div>
+        <div class="badge">+90 eBooks & actifs digitaux créés</div>
+        <div class="badge">Hôtellerie, KDP, contenu premium</div>
+      </div>
+
+      <div class="hero-cta-row">
+        <a href="#contact" class="btn-primary">
+          Planifier un appel découverte
+        </a>
+        <a href="#services" class="btn-ghost">
+          Voir les offres & process
+        </a>
+      </div>
+
+      <p class="hero-note">
+        Disponible pour missions ponctuelles, accompagnement stratégique ou set-up complet de vos systèmes de contenu.
+      </p>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-photo">
+          <div>
+            <div class="hero-photo-tag">fondatrice • strategist</div>
+            <div class="hero-photo-name">Élodie – AI by Elo</div>
+            <div class="hero-photo-role">IA & Content Systems pour marques exigeantes</div>
+          </div>
+          <div class="hero-photo-badge">
+            +10 ans d’expérience<br>formation & relation client
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>90+ eBooks & assets</strong>
+            Création & optimisation KDP, templates & tunnels.
+          </div>
+          <div class="hero-stat">
+            <strong>IA au quotidien</strong>
+            Workflows, prompts & automatisations sur-mesure.
+          </div>
+          <div class="hero-stat">
+            <strong>Approche humaine</strong>
+            Stratégie alignée avec vos valeurs, votre rythme et vos limites.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-heading">
+      <div>
+        <h2>Services & formats d’accompagnement</h2>
+      </div>
+      <p>
+        Vous pouvez me solliciter pour une mission ciblée, un accompagnement stratégique ou un set-up complet
+        de vos systèmes IA & contenu. On choisit ensemble ce qui est réellement prioritaire.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Offre 1 -->
+      <article class="card">
+        <div class="card-tag">01 • Audit & stratégie</div>
+        <h3>Diagnostic IA, contenu & offres</h3>
+        <p>
+          On cartographie votre écosystème : offres, contenus, tunnels, outils. Je vous livre une feuille de route
+          claire avec priorités, quick wins et idées IA à activer.
+        </p>
+        <ul>
+          <li>Audit de votre présence digitale & assets existants</li>
+          <li>Recommandations IA concrètes (prompts, workflows, idées)</li>
+          <li>Plan d’action 30–60–90 jours priorisé</li>
+        </ul>
+        <div class="card-footer">
+          <span class="pill">Idéal avant un pivot ou un lancement</span>
+          <span>Format : session visio + livrable PDF</span>
+        </div>
+      </article>
+
+      <!-- Offre 2 -->
+      <article class="card">
+        <div class="card-tag">02 • Systèmes & automatisation</div>
+        <h3>Studio IA & contenu “done with you”</h3>
+        <p>
+          On construit ensemble votre “moteur” de contenu : prompts, templates, tableaux, automatisations simples
+          pour que chaque idée soit transformée en assets réutilisables.
+        </p>
+        <ul>
+          <li>Bibliothèque de prompts personnalisés (FR / EN possible)</li>
+          <li>Templates pour posts, scripts, eBooks, emails</li>
+          <li>Organisation Notion / Sheets pour tout centraliser</li>
+        </ul>
+        <div class="card-footer">
+          <span class="pill">Accompagnement sur quelques semaines</span>
+          <span>On co-crée, vous gardez la main</span>
+        </div>
+      </article>
+
+      <!-- Offre 3 -->
+      <article class="card">
+        <div class="card-tag">03 • Création haut de gamme</div>
+        <h3>Contenus & actifs premium “done for you”</h3>
+        <p>
+          Vous avez la vision, je prends en charge la structuration, l’écriture assistée par IA et la mise en forme
+          de vos eBooks, guides, programmes ou offres signature.
+        </p>
+        <ul>
+          <li>Structuration & scénarisation de l’actif</li>
+          <li>Rédaction assistée par IA + retouches humaines</li>
+          <li>Livraison prête à être publiée (KDP, PDF, etc.)</li>
+        </ul>
+        <div class="card-footer">
+          <span class="pill">Pour marques & expertes exigeantes</span>
+          <span>Sur devis, selon ampleur du projet</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="section-heading">
+      <div>
+        <h2>Comment on travaille ensemble</h2>
+      </div>
+      <p>
+        Je préfère un process clair, humain et sans pression. L’objectif : que chaque étape vous semble logique
+        et que vous sachiez exactement où on va.
+      </p>
+    </div>
+
+    <div class="process">
+      <div>
+        <h3 style="margin-bottom:0.4rem;">Un cadre clair, puis de la personnalisation</h3>
+        <p>
+          On commence par sécuriser le cadre : vos objectifs, vos contraintes, votre réalité (temps, énergie, finances).
+          Ensuite seulement, on déploie l’IA et le contenu de façon intelligente, sans vous surcharger.
+        </p>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div>
+            <strong>Call découverte</strong>
+            On fait le point sur votre situation, vos offres, vos priorités. Si je ne suis pas la bonne personne,
+            je vous le dis honnêtement.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div>
+            <strong>Diagnostic & feuille de route</strong>
+            Je cartographie vos besoins réels et je propose un plan d’action. Vous validez, on ajuste, puis on bloque les dates.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div>
+            <strong>Co-création & production</strong>
+            On avance ensemble : ateliers, prompts, contenus, systèmes. Vous validez chaque livrable avant passage à la suite.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div>
+            <strong>Transmission & support</strong>
+            Vous repartez avec vos assets, vos prompts, votre mini-système – et la capacité de le faire vivre sans moi.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A PROPOS -->
+  <section id="about">
+    <div class="section-heading">
+      <div>
+        <h2>Qui je suis & comment je travaille</h2>
+      </div>
+      <p>
+        Une approche très structurée… mais profondément humaine. J’aime les systèmes autant que les conversations vraies.
+      </p>
+    </div>
+
+    <div class="card" style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.1fr);gap:1.8rem;">
+      <div>
+        <p style="font-size:0.94rem;color:var(--text-soft);margin-bottom:0.8rem;">
+          Je m’appelle Élodie. Je viens du monde de la formation, de l’aérien et de la relation client,
+          avec une obsession : rendre les choses plus claires, plus fluides, plus intelligentes – sans perdre la dimension humaine.
+        </p>
+        <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:0.6rem;">
+          J’ai créé plus de 90 eBooks & actifs digitaux, exploré KDP, les systèmes de points hôtel, l’IA appliquée
+          au business et au quotidien. Aujourd’hui, je mets ce mélange de curiosité, de stratégie et d’organisation
+          au service de marques et de femmes ambitieuses.
+        </p>
+        <p style="font-size:0.9rem;color:var(--text-muted);">
+          Je ne vends pas de miracle ni de promesse floue. On parle chiffres, charge mentale, réalité de votre vie,
+          puis on construit quelque chose de solide et exploitable ensemble.
+        </p>
+      </div>
+      <div style="display:grid;gap:0.5rem;font-size:0.86rem;color:var(--text-muted);">
+        <div class="pill">Approche : honnêteté, clarté, zéro bullshit</div>
+        <div class="pill">Langues : français & anglais (C1)</div>
+        <div class="pill">Basée entre Paris & Dubaï – ouverture internationale</div>
+        <div class="pill">IA utilisée au quotidien, pas juste “pour le buzz”</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-heading">
+      <div>
+        <h2>Parlons de votre projet</h2>
+      </div>
+      <p>
+        Quelques infos sur vous, vos offres et vos objectifs me permettront de vous répondre avec une proposition claire.
+      </p>
+    </div>
+
+    <div class="contact">
+      <div>
+        <h3 style="margin-bottom:0.5rem;">Étape suivante : m’envoyer un message</h3>
+        <p>
+          Dites-moi qui vous êtes, ce que vous vendez aujourd’hui et ce que vous aimeriez simplifier, automatiser
+          ou amplifier grâce à l’IA et au contenu. Je reviens vers vous avec les options les plus pertinentes.
+        </p>
+        <div class="hero-cta-row" style="margin-top:0.3rem;">
+          <a href="mailto:luxuryhotels.elo@gmail.com?subject=Projet%20IA%20%26%20contenu%20-%20AI%20by%20Elo" class="btn-primary">
+            Écrire à Élodie
+          </a>
+        </div>
+        <div class="contact-info" style="margin-top:0.9rem;">
+          <span>Email : <a href="mailto:luxuryhotels.elo@gmail.com">luxuryhotels.elo@gmail.com</a></span>
+          <!-- Si tu as un Calendly plus tard :
+          <span>Calendly : <a href="https://tonlien" target="_blank">Réserver un créneau en ligne</a></span>
+          -->
+        </div>
+      </div>
+      <div>
+        <div class="contact-taglist">
+          <div class="contact-tag">Créatrices de contenu</div>
+          <div class="contact-tag">Coachs & consultantes</div>
+          <div class="contact-tag">Marques de services premium</div>
+          <div class="contact-tag">Projets d’expatriation / lifestyle</div>
+        </div>
+        <p style="font-size:0.86rem;color:var(--text-muted);margin-top:0.7rem;">
+          Vous n’êtes pas obligée d’avoir “tout préparé” pour me contacter. Si vous êtes en phase de réflexion,
+          on peut aussi faire un point de clarté et définir les vraies priorités.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© AI by Elo – Élodie. Tous droits réservés.</span>
+    <span>Basée entre Paris & Dubaï • IA, contenu & automatisation au service de votre marque.</span>
+  </div>
+</footer>
 </body>
 </html>
