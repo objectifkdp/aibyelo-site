@@ -1,969 +1,531 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AI by Elo – IA, contenu & automatisation</title>
+  <title>AI by Elo – AI Content & Automation Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="AI by Elo – IA appliquée au contenu, au marketing et à l’automatisation. Portfolio & services d’Élodie, basée entre Paris et Dubaï." />
-
-  <!-- Police chic + lisible -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+  <meta name="description" content="AI by Elo – AI applied to content, marketing and automation. Portfolio & services by Élodie, based between Paris and Dubai." />
   <style>
-    :root {
-      /* Palette luxe brun / beige / doré */
-      --bg-main: #0f0a07;          /* fond très sombre */
-      --bg-soft: #20130f;          /* blocs sombres */
-      --beige:   #f3e5d0;
-      --beige-soft: #e4d3bd;
-      --brown:   #3d241a;
-      --brown-deep: #24100a;
-      --gold:    #cda676;
-      --text-main: #f7f3ee;
-      --text-soft: #e4ddd5;
-      --text-muted: #b0a79c;
-      --border-soft: rgba(255,255,255,0.08);
-      --shadow-soft: 0 18px 45px rgba(0,0,0,0.65);
-      --radius-lg: 22px;
-      --radius-md: 16px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; }
 
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #2b1810 0, #0b0503 55%, #050308 100%);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #2d1b13 0%, #050307 55%, #020107 100%);
+      color: #f5e9dd;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* ---------- Layout global ---------- */
+    a { color: #f5e9dd; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     header {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(5, 3, 5, 0.96);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: rgba(5, 3, 7, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(245, 233, 221, 0.12);
     }
 
     .nav {
-      max-width: 1080px;
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 0.9rem 1.5rem;
+      padding: 0.75rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.25rem;
     }
 
     .logo {
-      font-family: "Playfair Display", serif;
-      font-size: 1.15rem;
-      letter-spacing: 0.22em;
+      font-weight: 700;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--beige);
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
+      font-size: 0.82rem;
     }
 
-    .logo-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #f9f5ec, var(--gold));
+    .logo span {
+      opacity: 0.7;
+      font-weight: 500;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 1.35rem;
+      flex-wrap: wrap;
+      gap: 1.25rem;
       font-size: 0.9rem;
-      color: var(--text-muted);
     }
 
     .nav-links a {
-      position: relative;
-      padding-bottom: 0.15rem;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.15rem;
-      width: 0;
-      height: 1px;
-      background: linear-gradient(90deg, var(--gold), var(--beige-soft));
-      transition: width 0.2s ease;
+      opacity: 0.82;
     }
 
     .nav-links a:hover {
-      color: var(--text-main);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      padding: 0.55rem 1.1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: radial-gradient(circle at top left, rgba(205,166,118,0.18), transparent 60%);
-      color: var(--beige-soft);
+      opacity: 1;
     }
 
     main {
-      max-width: 1080px;
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 4.5rem;
+      padding: 3rem 1.5rem 4rem;
     }
 
-    section {
-      margin-top: 3.3rem;
+    .section {
+      margin-bottom: 4rem;
     }
 
-    h1, h2, h3 {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      letter-spacing: 0.02em;
+    .section-tag {
+      display: inline-block;
+      padding: 0.25rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 233, 221, 0.28);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #f5e9dd;
+      opacity: 0.9;
+      margin-bottom: 1rem;
     }
 
-    /* ---------- HERO ---------- */
+    .section-title {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      margin: 0 0 0.75rem;
+    }
+
+    .section-intro {
+      max-width: 40rem;
+      color: rgba(245, 233, 221, 0.92);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Hero */
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
-      gap: 2.4rem;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 2.5rem;
       align-items: center;
-      margin-top: 1.5rem;
+      margin-bottom: 4rem;
     }
 
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.16);
-      font-size: 0.78rem;
+    .hero-tagline {
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--text-muted);
-      background: linear-gradient(90deg, rgba(223,190,143,0.15), rgba(23,15,9,0.8));
-      margin-bottom: 1.1rem;
+      color: rgba(245, 233, 221, 0.7);
+      margin-bottom: 0.75rem;
     }
 
-    .hero-tag-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--gold);
+    .hero-title {
+      font-size: clamp(2.1rem, 3.6vw, 2.9rem);
+      line-height: 1.1;
+      margin: 0 0 1rem;
     }
 
-    .hero h1 {
-      font-size: clamp(2.4rem, 4.1vw, 3.3rem);
-      line-height: 1.12;
-      margin-bottom: 0.8rem;
+    .hero-highlight {
+      color: #f7d2a3;
     }
 
-    .hero h1 span {
-      color: var(--gold);
-    }
-
-    .hero-sub {
+    .hero-text {
       font-size: 0.98rem;
-      color: var(--text-soft);
+      color: rgba(245, 233, 221, 0.92);
       max-width: 34rem;
-      margin-bottom: 1.6rem;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
     }
 
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
     }
 
     .badge {
-      font-size: 0.8rem;
-      padding: 0.32rem 0.72rem;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(20,12,8,0.9);
-      color: var(--text-muted);
-    }
-
-    .badge-strong {
-      color: var(--beige);
-      border-color: rgba(205,166,118,0.6);
-      background: radial-gradient(circle at top left, rgba(205,166,118,0.3), rgba(18,10,5,0.95));
-    }
-
-    .hero-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-    }
-
-    .btn-primary, .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      padding: 0.8rem 1.4rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #f9f1e3, #e5c89b, #cda676);
-      color: #2a190e;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
-    }
-
-    .btn-ghost {
-      border-color: rgba(255,255,255,0.22);
-      color: var(--text-soft);
-      background: rgba(17,10,7,0.8);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(37,22,16,0.95);
-    }
-
-    .hero-note {
-      margin-top: 0.8rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .hero-right {
-      position: relative;
+      border: 1px solid rgba(245, 233, 221, 0.2);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.75rem;
+      color: rgba(245, 233, 221, 0.9);
+      background: rgba(8, 5, 7, 0.9);
     }
 
     .hero-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255,255,255,0.1);
-      background: radial-gradient(circle at top left, rgba(249,241,227,0.12), rgba(10,6,4,0.98));
-      padding: 1.1rem;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(245, 233, 221, 0.15);
+      padding: 1.4rem 1.45rem;
+      background: radial-gradient(circle at top left, #3a2720 0%, #0a0507 55%, #050307 100%);
     }
 
-    .hero-photo {
-      border-radius: var(--radius-md);
-      background: linear-gradient(135deg, #41241c, #694331);
-      border: 1px solid rgba(255,255,255,0.18);
-      min-height: 240px;
-      display: flex;
-      align-items: flex-end;
-      padding: 1.1rem 1.1rem 1.3rem;
-      color: var(--beige);
-      position: relative;
-      overflow: hidden;
+    .hero-card h3 {
+      margin-top: 0;
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
     }
 
-    /* 👉 Tu pourras remplacer ce fond par une vraie photo :
-       Ajoute par ex :
-       background-image: url('https://ton-image.jpg');
-       background-size: cover;
-       background-position: center;
-    */
-
-    .hero-photo-tag {
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.88;
-    }
-
-    .hero-photo-name {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-top: 0.15rem;
-    }
-
-    .hero-photo-role {
-      font-size: 0.86rem;
-      color: #f5e7d5;
-      opacity: 0.9;
-    }
-
-    .hero-photo-badge {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      padding: 0.5rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(5,3,3,0.82);
-      border: 1px solid rgba(255,255,255,0.34);
-      font-size: 0.76rem;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.7rem;
-      margin-top: 0.9rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .hero-stat {
-      padding: 0.55rem 0.7rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(7,4,3,0.9);
-    }
-
-    .hero-stat strong {
-      display: block;
-      font-size: 0.95rem;
-      color: var(--beige);
-    }
-
-    /* ---------- SECTION TITRES ---------- */
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 1rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .section-heading h2 {
-      font-size: 1.45rem;
-    }
-
-    .section-heading p {
+    .hero-card p {
       font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 24rem;
+      line-height: 1.6;
+      color: rgba(245, 233, 221, 0.9);
     }
 
-    /* ---------- SERVICES ---------- */
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
 
-    .services-grid {
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f5e9dd, #d9b28a);
+      color: #1b0f08;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(245, 233, 221, 0.35);
+      color: #f5e9dd;
+    }
+
+    .btn:hover {
+      opacity: 0.93;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .cta-note {
+      font-size: 0.85rem;
+      color: rgba(245, 233, 221, 0.8);
+    }
+
+    /* Services */
+
+    .cards-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
     }
 
     .card {
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255,255,255,0.1);
-      background: radial-gradient(circle at top left, rgba(255,245,230,0.06), rgba(10,5,4,0.98));
-      padding: 1.1rem 1.1rem 1.2rem;
-      box-shadow: 0 16px 35px rgba(0,0,0,0.6);
+      border-radius: 1.1rem;
+      border: 1px solid rgba(245, 233, 221, 0.14);
+      background: rgba(7, 4, 6, 0.96);
+      padding: 1.3rem 1.4rem 1.4rem;
     }
 
     .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .card-tag {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-muted);
+      margin-top: 0;
       margin-bottom: 0.6rem;
+      font-size: 1.02rem;
     }
 
     .card p {
       font-size: 0.9rem;
-      color: var(--text-soft);
-      margin-bottom: 0.7rem;
+      line-height: 1.5;
+      color: rgba(245, 233, 221, 0.9);
+      margin-bottom: 0.8rem;
     }
 
     .card ul {
-      list-style: none;
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.88rem;
+      color: rgba(245, 233, 221, 0.9);
     }
 
-    .card ul li::before {
-      content: "•";
-      color: var(--gold);
-      margin-right: 0.35rem;
+    .card li {
+      margin-bottom: 0.35rem;
     }
 
-    .card-footer {
-      margin-top: 0.85rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-    }
+    /* Case Studies */
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.3rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      font-size: 0.78rem;
-      color: var(--beige-soft);
-    }
-
-    /* ---------- PROCESS ---------- */
-
-    .process {
-      border-radius: var(--radius-lg);
-      background: radial-gradient(circle at top left, #3b2419, #160b08);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 1.4rem 1.4rem 1.6rem;
-      box-shadow: var(--shadow-soft);
+    .cases-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
-      gap: 2rem;
-      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
 
-    .process p {
-      font-size: 0.92rem;
-      color: #f5e7d7;
+    .case-card {
+      border-radius: 1.1rem;
+      border: 1px solid rgba(245, 233, 221, 0.16);
+      background: radial-gradient(circle at top left, #3b2820 0%, #090407 55%, #050307 100%);
+      padding: 1.4rem 1.45rem;
     }
 
-    .process-steps {
-      display: grid;
-      gap: 0.6rem;
+    .case-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(245, 233, 221, 0.7);
+      margin-bottom: 0.4rem;
+    }
+
+    .case-title {
+      font-size: 1.02rem;
+      margin: 0 0 0.6rem;
+    }
+
+    .case-metric {
       font-size: 0.86rem;
-      color: var(--beige-soft);
+      color: #f7d2a3;
+      margin-bottom: 0.4rem;
     }
 
-    .step {
-      padding: 0.6rem 0.7rem;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(9,5,4,0.9);
-      display: flex;
-      gap: 0.7rem;
+    .case-card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.86rem;
+      color: rgba(245, 233, 221, 0.9);
     }
 
-    .step-number {
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: var(--gold);
-      flex-shrink: 0;
+    .case-card li {
+      margin-bottom: 0.35rem;
     }
 
-    .step strong {
-      display: block;
-      font-size: 0.92rem;
-      margin-bottom: 0.08rem;
+    /* Contact */
+
+    .contact-box {
+      border-radius: 1.1rem;
+      border: 1px solid rgba(245, 233, 221, 0.18);
+      padding: 1.5rem 1.4rem;
+      background: rgba(7, 4, 6, 0.96);
+      max-width: 560px;
     }
 
-    /* ---------- CONTACT ---------- */
-
-    .contact {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255,255,255,0.14);
-      background: radial-gradient(circle at top right, rgba(229,200,155,0.18), rgba(8,5,4,0.98));
-      padding: 1.3rem 1.3rem 1.5rem;
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      grid-template-columns: minmax(0,1.4fr) minmax(0,1.1fr);
-      gap: 1.9rem;
-      align-items: center;
+    .contact-box p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(245, 233, 221, 0.9);
     }
 
-    .contact p {
-      font-size: 0.92rem;
-      color: var(--text-soft);
-      max-width: 30rem;
-      margin-bottom: 1rem;
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.9rem 0 0;
+      font-size: 0.9rem;
     }
 
-    .contact-info {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      display: grid;
-      gap: 0.2rem;
+    .contact-list li {
+      margin-bottom: 0.35rem;
     }
-
-    .contact-info a {
-      color: var(--beige-soft);
-      text-decoration: underline;
-      text-decoration-color: rgba(205,166,118,0.7);
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-    }
-
-    .contact-taglist {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .contact-tag {
-      padding: 0.22rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    /* ---------- FOOTER ---------- */
 
     footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 1.2rem 1.5rem 1.7rem;
+      border-top: 1px solid rgba(245, 233, 221, 0.18);
+      padding: 1.2rem 1.5rem 1.8rem;
+      text-align: center;
       font-size: 0.8rem;
-      color: var(--text-muted);
-      background: #050305;
+      color: rgba(245, 233, 221, 0.7);
     }
 
-    .footer-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* ---------- RESPONSIVE ---------- */
-
-    @media (max-width: 900px) {
-      .hero,
-      .process,
-      .contact {
-        grid-template-columns: minmax(0,1fr);
-      }
-
+    @media (max-width: 800px) {
       .hero {
-        gap: 1.9rem;
+        grid-template-columns: 1fr;
       }
-
-      .hero-right {
+      .hero-card {
         order: -1;
       }
-
-      .services-grid {
-        grid-template-columns: minmax(0,1fr);
-      }
-
       .nav {
-        padding-inline: 1.1rem;
+        padding-inline: 1rem;
       }
-
       main {
-        padding-inline: 1.1rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 2.1rem;
-      }
-
-      .hero-stats {
-        grid-template-columns: repeat(2,minmax(0,1fr));
+        padding-inline: 1rem;
       }
     }
   </style>
 </head>
-
 <body>
-<header>
-  <div class="nav">
-    <div class="logo">
-      <span class="logo-dot"></span>
-      <span>AI BY ELO</span>
-    </div>
-    <nav class="nav-links">
-      <a href="#services">Services</a>
+  <header>
+    <div class="nav">
+      <div class="logo">AI BY ELO <span>CONTENT & AUTOMATION</span></div>
       <nav class="nav-links">
-  <a href="#services">Services</a>
-  <a href="#kdp">Formation KDP</a>
-  <a href="#process">Process</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">À propos</a>
-</nav>
-      <a href="#process">Process</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">À propos</a>
-    </nav>
-    <a href="#contact" class="nav-cta">Parler de votre projet</a>
-  </div>
-</header>
-
-<main>
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div>
-      <div class="hero-tag">
-        <span class="hero-tag-dot"></span>
-        IA appliquée • Contenu • Automatisation
-      </div>
-
-      <h1>
-        Une <span>stratégie IA & contenu</span> pensée pour faire grandir votre marque – pas votre to-do list.
-      </h1>
-
-      <p class="hero-sub">
-        Je m’appelle Élodie, j’aide les marques ambitieuses, solopreneurs et expertes à structurer leur contenu,
-        optimiser leurs systèmes et mettre l’IA au service de leurs objectifs – sans perdre leur voix ni leur élégance.
-      </p>
-
-      <div class="hero-badges">
-        <div class="badge badge-strong">Paris ⇄ Dubaï</div>
-        <div class="badge">+90 eBooks & actifs digitaux créés</div>
-        <div class="badge">Hôtellerie, KDP, contenu premium</div>
-      </div>
-
-      <div class="hero-cta-row">
-        <a href="#contact" class="btn-primary">
-          Planifier un appel découverte
-        </a>
-        <a href="#services" class="btn-ghost">
-          Voir les offres & process
-        </a>
-      </div>
-
-      <p class="hero-note">
-        Disponible pour missions ponctuelles, accompagnement stratégique ou set-up complet de vos systèmes de contenu.
-      </p>
+        <a href="#top">Home</a>
+        <a href="#services">Services</a>
+        <a href="#cases">Case Studies</a>
+        <a href="kdp.html">KDP Training</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="hero-photo">
-          <div>
-            <div class="hero-photo-tag">fondatrice • strategist</div>
-            <div class="hero-photo-name">Élodie – AI by Elo</div>
-            <div class="hero-photo-role">IA & Content Systems pour marques exigeantes</div>
-          </div>
-          <div class="hero-photo-badge">
-            +10 ans d’expérience<br>formation & relation client
-          </div>
-        </div>
-
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <strong>90+ eBooks & assets</strong>
-            Création & optimisation KDP, templates & tunnels.
-          </div>
-          <div class="hero-stat">
-            <strong>IA au quotidien</strong>
-            Workflows, prompts & automatisations sur-mesure.
-          </div>
-          <div class="hero-stat">
-            <strong>Approche humaine</strong>
-            Stratégie alignée avec vos valeurs, votre rythme et vos limites.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-heading">
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero section">
       <div>
-        <h2>Services & formats d’accompagnement</h2>
-        <section id="kdp" class="section kdp-section">
-  <div class="section-inner">
-    <p class="section-tag">Formation Amazon KDP</p>
-    <h2 class="section-title">Objectif KDP – transformer tes idées en revenus digitaux</h2>
-    <p class="section-intro">
-      Tu veux lancer (ou relancer) ton activité sur Amazon KDP avec une méthode claire, réaliste
-      et alignée avec ta vie ? Je t’accompagne de A à Z : de l’idée au premier eBook publié, en
-      utilisant l’IA comme copilote – jamais comme remplacement de ta voix.
-    </p>
-
-    <div class="kdp-grid">
-      <div class="kdp-card">
-        <h3>Ce que tu apprends</h3>
-        <ul>
-          <li>Choisir une niche réaliste (pas les promesses miracles YouTube).</li>
-          <li>Construire une offre KDP qui a du sens pour toi.</li>
-          <li>Structurer et écrire ton eBook avec l’IA sans perdre ton style.</li>
-          <li>Préparer la mise en page & la mise en ligne sur Amazon KDP.</li>
-        </ul>
-      </div>
-
-      <div class="kdp-card">
-        <h3>Format de la formation</h3>
-        <ul>
-          <li>Sessions en ligne en petit groupe ou 1:1 selon la formule.</li>
-          <li>Templates, checklists et prompts prêts à l’emploi.</li>
-          <li>Accès aux replays & documents pendant une durée définie.</li>
-          <li>Focus : clarté, application immédiate, zéro blabla inutile.</li>
-        </ul>
-      </div>
-
-      <div class="kdp-card">
-        <h3>Pour qui ?</h3>
-        <ul>
-          <li>Femmes ambitieuses qui veulent un revenu KDP sérieux, pas “facile”.</li>
-          <li>Créatrices de contenu, coachs, formatrices, salariées en transition.</li>
-          <li>Personnes prêtes à travailler, pas à chercher la méthode magique.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="kdp-cta-row">
-      <a class="btn btn-primary" href="mailto:objectifkdp@gmail.com?subject=Formation%20KDP%20-%20Infos&body=Bonjour%20%C3%89lodie,%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20ta%20formation%20KDP.%20Voici%20ma%20situation%20:%0A">
-        Demander le programme détaillé
-      </a>
-      <p class="kdp-note">
-        Tu n’as pas besoin d’avoir tout défini : explique-moi où tu en es, je te dirai honnêtement
-        si la formation KDP est adaptée pour toi ou non.
-      </p>
-    </div>
-  </div>
-</section>
-      </div>
-      <p>
-        Vous pouvez me solliciter pour une mission ciblée, un accompagnement stratégique ou un set-up complet
-        de vos systèmes IA & contenu. On choisit ensemble ce qui est réellement prioritaire.
-      </p>
-    </div>
-
-    <div class="services-grid">
-      <!-- Offre 1 -->
-      <article class="card">
-        <div class="card-tag">01 • Audit & stratégie</div>
-        <h3>Diagnostic IA, contenu & offres</h3>
-        <p>
-          On cartographie votre écosystème : offres, contenus, tunnels, outils. Je vous livre une feuille de route
-          claire avec priorités, quick wins et idées IA à activer.
+        <p class="hero-tagline">AI content & automation studio</p>
+        <h1 class="hero-title">
+          Elegant, strategic content <span class="hero-highlight">powered by AI</span> – without losing your voice.
+        </h1>
+        <p class="hero-text">
+          I help you design smart content systems, funnels and automations using AI – for Amazon KDP,
+          personal brands and hospitality. The goal: less chaos, more clarity, and assets that actually
+          bring in clients and revenue.
         </p>
-        <ul>
-          <li>Audit de votre présence digitale & assets existants</li>
-          <li>Recommandations IA concrètes (prompts, workflows, idées)</li>
-          <li>Plan d’action 30–60–90 jours priorisé</li>
-        </ul>
-        <div class="card-footer">
-          <span class="pill">Idéal avant un pivot ou un lancement</span>
-          <span>Format : session visio + livrable PDF</span>
+        <div class="hero-badges">
+          <span class="badge">Amazon KDP</span>
+          <span class="badge">AI content systems</span>
+          <span class="badge">Hotel & hospitality</span>
+          <span class="badge">Paris ⇄ Dubai</span>
         </div>
-      </article>
-
-      <!-- Offre 2 -->
-      <article class="card">
-        <div class="card-tag">02 • Systèmes & automatisation</div>
-        <h3>Studio IA & contenu “done with you”</h3>
-        <p>
-          On construit ensemble votre “moteur” de contenu : prompts, templates, tableaux, automatisations simples
-          pour que chaque idée soit transformée en assets réutilisables.
-        </p>
-        <ul>
-          <li>Bibliothèque de prompts personnalisés (FR / EN possible)</li>
-          <li>Templates pour posts, scripts, eBooks, emails</li>
-          <li>Organisation Notion / Sheets pour tout centraliser</li>
-        </ul>
-        <div class="card-footer">
-          <span class="pill">Accompagnement sur quelques semaines</span>
-          <span>On co-crée, vous gardez la main</span>
-        </div>
-      </article>
-
-      <!-- Offre 3 -->
-      <article class="card">
-        <div class="card-tag">03 • Création haut de gamme</div>
-        <h3>Contenus & actifs premium “done for you”</h3>
-        <p>
-          Vous avez la vision, je prends en charge la structuration, l’écriture assistée par IA et la mise en forme
-          de vos eBooks, guides, programmes ou offres signature.
-        </p>
-        <ul>
-          <li>Structuration & scénarisation de l’actif</li>
-          <li>Rédaction assistée par IA + retouches humaines</li>
-          <li>Livraison prête à être publiée (KDP, PDF, etc.)</li>
-        </ul>
-        <div class="card-footer">
-          <span class="pill">Pour marques & expertes exigeantes</span>
-          <span>Sur devis, selon ampleur du projet</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="process">
-    <div class="section-heading">
-      <div>
-        <h2>Comment on travaille ensemble</h2>
-      </div>
-      <p>
-        Je préfère un process clair, humain et sans pression. L’objectif : que chaque étape vous semble logique
-        et que vous sachiez exactement où on va.
-      </p>
-    </div>
-
-    <div class="process">
-      <div>
-        <h3 style="margin-bottom:0.4rem;">Un cadre clair, puis de la personnalisation</h3>
-        <p>
-          On commence par sécuriser le cadre : vos objectifs, vos contraintes, votre réalité (temps, énergie, finances).
-          Ensuite seulement, on déploie l’IA et le contenu de façon intelligente, sans vous surcharger.
-        </p>
-      </div>
-      <div class="process-steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <div>
-            <strong>Call découverte</strong>
-            On fait le point sur votre situation, vos offres, vos priorités. Si je ne suis pas la bonne personne,
-            je vous le dis honnêtement.
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <div>
-            <strong>Diagnostic & feuille de route</strong>
-            Je cartographie vos besoins réels et je propose un plan d’action. Vous validez, on ajuste, puis on bloque les dates.
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <div>
-            <strong>Co-création & production</strong>
-            On avance ensemble : ateliers, prompts, contenus, systèmes. Vous validez chaque livrable avant passage à la suite.
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <div>
-            <strong>Transmission & support</strong>
-            Vous repartez avec vos assets, vos prompts, votre mini-système – et la capacité de le faire vivre sans moi.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- A PROPOS -->
-  <section id="about">
-    <div class="section-heading">
-      <div>
-        <h2>Qui je suis & comment je travaille</h2>
-      </div>
-      <p>
-        Une approche très structurée… mais profondément humaine. J’aime les systèmes autant que les conversations vraies.
-      </p>
-    </div>
-
-    <div class="card" style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.1fr);gap:1.8rem;">
-      <div>
-        <p style="font-size:0.94rem;color:var(--text-soft);margin-bottom:0.8rem;">
-          Je m’appelle Élodie. Je viens du monde de la formation, de l’aérien et de la relation client,
-          avec une obsession : rendre les choses plus claires, plus fluides, plus intelligentes – sans perdre la dimension humaine.
-        </p>
-        <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:0.6rem;">
-          J’ai créé plus de 90 eBooks & actifs digitaux, exploré KDP, les systèmes de points hôtel, l’IA appliquée
-          au business et au quotidien. Aujourd’hui, je mets ce mélange de curiosité, de stratégie et d’organisation
-          au service de marques et de femmes ambitieuses.
-        </p>
-        <p style="font-size:0.9rem;color:var(--text-muted);">
-          Je ne vends pas de miracle ni de promesse floue. On parle chiffres, charge mentale, réalité de votre vie,
-          puis on construit quelque chose de solide et exploitable ensemble.
-        </p>
-      </div>
-      <div style="display:grid;gap:0.5rem;font-size:0.86rem;color:var(--text-muted);">
-        <div class="pill">Approche : honnêteté, clarté, zéro bullshit</div>
-        <div class="pill">Langues : français & anglais (C1)</div>
-        <div class="pill">Basée entre Paris & Dubaï – ouverture internationale</div>
-        <div class="pill">IA utilisée au quotidien, pas juste “pour le buzz”</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-heading">
-      <div>
-        <h2>Parlons de votre projet</h2>
-      </div>
-      <p>
-        Quelques infos sur vous, vos offres et vos objectifs me permettront de vous répondre avec une proposition claire.
-      </p>
-    </div>
-
-    <div class="contact">
-      <div>
-        <h3 style="margin-bottom:0.5rem;">Étape suivante : m’envoyer un message</h3>
-        <p>
-          Dites-moi qui vous êtes, ce que vous vendez aujourd’hui et ce que vous aimeriez simplifier, automatiser
-          ou amplifier grâce à l’IA et au contenu. Je reviens vers vous avec les options les plus pertinentes.
-        </p>
-        <div class="hero-cta-row" style="margin-top:0.3rem;">
-          <a href="mailto:objectifkdp@gmail.com?subject=Projet%20IA%20%26%20contenu%20-%20AI%20by%20Elo" class="btn-primary">
-            Écrire à Élodie
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:objectifkdp@gmail.com?subject=AI%20Content%20%2F%20Automation%20-%20Project&body=Hi%20Elo,%0A%0AI%E2%80%99d%20like%20to%20discuss%20a%20project%20with%20you.%20Here%E2%80%99s%20a%20quick%20summary%20of%20my%20needs%20:%0A">
+            Book a quick call
           </a>
-        </div>
-        <div class="contact-info" style="margin-top:0.9rem;">
-          <span>Email : <a href="mailto:objectifkdp@gmail.com">objectifkdp@gmail.com</a></span>
-          <!-- Si tu as un Calendly plus tard :
-          <span>Calendly : <a href="https://tonlien" target="_blank">Réserver un créneau en ligne</a></span>
-          -->
+          <a class="btn btn-ghost" href="kdp.html">
+            Explore KDP training
+          </a>
+          <p class="cta-note">
+            Prefer WhatsApp? You can also text me on <strong>+33&nbsp;6&nbsp;64&nbsp;86&nbsp;36&nbsp;46</strong>.
+          </p>
         </div>
       </div>
-      <div>
-        <div class="contact-taglist">
-          <div class="contact-tag">Créatrices de contenu</div>
-          <div class="contact-tag">Coachs & consultantes</div>
-          <div class="contact-tag">Marques de services premium</div>
-          <div class="contact-tag">Projets d’expatriation / lifestyle</div>
-        </div>
-        <p style="font-size:0.86rem;color:var(--text-muted);margin-top:0.7rem;">
-          Vous n’êtes pas obligée d’avoir “tout préparé” pour me contacter. Si vous êtes en phase de réflexion,
-          on peut aussi faire un point de clarté et définir les vraies priorités.
-        </p>
-      </div>
-    </div>
-  </section>
-</main>
 
-<footer>
-  <div class="footer-inner">
-    <span>© AI by Elo – Élodie. Tous droits réservés.</span>
-    <span>Basée entre Paris & Dubaï • IA, contenu & automatisation au service de votre marque.</span>
-  </div>
-</footer>
+      <aside class="hero-card">
+        <h3>How I work</h3>
+        <p>
+          I don’t just “generate content with AI”. I design systems: inputs, prompts, templates and
+          workflows you can reuse on your own – in French or English – without feeling overwhelmed.
+        </p>
+        <p>
+          My clients come to me for clarity, structure and a mix of strategy + execution. I tell you
+          honestly what makes sense for your context, not what sounds good on Instagram.
+        </p>
+      </aside>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <p class="section-tag">Services</p>
+      <h2 class="section-title">What we can build together</h2>
+      <p class="section-intro">
+        Every project is tailored, but most of my work falls into three main pillars:
+        AI-assisted content systems, KDP publishing and hospitality content.
+      </p>
+
+      <div class="cards-grid">
+        <article class="card">
+          <h3>AI content systems & automation</h3>
+          <p>
+            We map your current content workflow, then design prompts, templates and automations
+            so you can publish consistently without burning out.
+          </p>
+          <ul>
+            <li>Audit of your current content & processes.</li>
+            <li>Prompt libraries & reusable templates (Notion / Google Docs).</li>
+            <li>AI-powered outlines, scripts and captions – still in your tone of voice.</li>
+            <li>Simple automations to save hours every week.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Amazon KDP – from idea to publish</h3>
+          <p>
+            You have knowledge and ideas, but you’re stuck at “I should write a book one day”.
+            Together, we turn that into a clear KDP plan and real digital products.
+          </p>
+          <ul>
+            <li>Positioning, niche and offer design (no fake “get rich quick” strategy).</li>
+            <li>Outlines, chapter structures and AI-assisted writing prompts.</li>
+            <li>Basics of covers, descriptions and categories for KDP.</li>
+            <li>Optional: dedicated <strong>Objectif KDP</strong> training (in French).</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Hotel & hospitality content with AI</h3>
+          <p>
+            For hotels and hospitality brands who want warm, aspirational content at scale
+            – without losing the high-end touch of their brand.
+          </p>
+          <ul>
+            <li>AI frameworks for room types, offers and stay experiences.</li>
+            <li>Scripts & shotlists for short-form video (Reels, TikTok, Shorts).</li>
+            <li>Story-driven email & social content around guest journeys.</li>
+            <li>Systems your team can reuse long after our work together.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="cases" class="section">
+      <p class="section-tag">Case Studies & Portfolio</p>
+      <h2 class="section-title">A glimpse of how I use AI in real projects</h2>
+      <p class="section-intro">
+        Below are two examples I created as part of my own upskilling. They show how I think:
+        strategy first, AI as a tool – not a magic trick.
+      </p>
+
+      <div class="cases-grid">
+        <!-- Case 1 -->
+        <article class="case-card">
+          <p class="case-tag">Case study • Amazon KDP & beauty</p>
+          <h3 class="case-title">“Wood Therapy Glow” – content system for a madérothérapie eBook</h3>
+          <p class="case-metric">Goal: turn one eBook into a full content ecosystem.</p>
+          <ul>
+            <li>Positioning of the eBook as a premium, evidence-based guide to wood therapy.</li>
+            <li>AI-assisted strategy to repurpose chapters into Reels, carousels and emails.</li>
+            <li>Prompt library for FAQs, client objections and post-purchase nurturing.</li>
+            <li>Simple funnel concept to link IG → lead magnet → eBook → higher-ticket offer.</li>
+          </ul>
+        </article>
+
+        <!-- Case 2 -->
+        <article class="case-card">
+          <p class="case-tag">Case study • Hospitality & AI</p>
+          <h3 class="case-title">AI-powered content system for a luxury hotel in Dubai</h3>
+          <p class="case-metric">Goal: consistent, high-end content without a full-time content team.</p>
+          <ul>
+            <li>Mapping of key hotel moments (arrival, breakfast, pool, spa, night views).</li>
+            <li>AI prompts to generate story-driven captions from simple shoot notes.</li>
+            <li>Shotlist templates for vertical videos (TikTok / Reels) aligned with the brand.</li>
+            <li>Weekly content calendar combining lifestyle, offers and UGC-style content.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <p class="section-tag">Let’s talk</p>
+      <h2 class="section-title">Tell me where you are – I’ll tell you if I can help</h2>
+
+      <div class="contact-box">
+        <p>
+          I like honest conversations. Tell me what you’re trying to build (KDP, content system,
+          hotel visibility, personal brand…) and what you’ve already tried. If I don’t think I’m
+          the right person, I’ll say it.
+        </p>
+        <ul class="contact-list">
+          <li>Email: <a href="mailto:objectifkdp@gmail.com">objectifkdp@gmail.com</a></li>
+          <li>Phone / WhatsApp: <a href="tel:+33664863646">+33&nbsp;6&nbsp;64&nbsp;86&nbsp;36&nbsp;46</a></li>
+          <li>Based between Paris &amp; Dubai – I work fully online.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> AI by Elo – Content & Automation Studio. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
