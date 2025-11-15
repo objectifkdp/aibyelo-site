@@ -5,6 +5,12 @@
   <title>AI by Elo – AI Content & Automation Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="AI by Elo – AI applied to content, marketing and automation. Portfolio & services by Élodie, based between Paris and Dubai." />
+
+  <!-- Elegant serif + script fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
   <style>
     * { box-sizing: border-box; }
 
@@ -13,6 +19,10 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #2d1b13 0%, #050307 55%, #020107 100%);
       color: #f5e9dd;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: "Playfair Display", serif;
     }
 
     a { color: #f5e9dd; text-decoration: none; }
@@ -253,19 +263,80 @@
       margin-bottom: 0.35rem;
     }
 
-    /* Case Studies */
+    /* About section */
 
-    .cases-grid {
+    .about-section {
+      margin-bottom: 4rem;
+      max-width: 720px;
+    }
+
+    .about-section h3 {
+      font-size: 1.5rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .about-section p {
+      line-height: 1.7;
+      opacity: 0.85;
+      margin-bottom: 0.75rem;
+    }
+
+    .metrics-line {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.7;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    /* Case Studies – new layout */
+
+    .case-section {
+      margin-bottom: 4rem;
+    }
+
+    .case-intro {
+      max-width: 720px;
+      margin-bottom: 2.5rem;
+    }
+
+    .case-intro h2 {
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-intro h3 {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 0.75rem;
+    }
+
+    .case-intro p {
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    .case-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .case-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .case-card {
-      border-radius: 1.1rem;
-      border: 1px solid rgba(245, 233, 221, 0.16);
-      background: radial-gradient(circle at top left, #3b2820 0%, #090407 55%, #050307 100%);
-      padding: 1.4rem 1.45rem;
+      background: #101010;
+      border-radius: 1.5rem;
+      border: 1px solid #2b2b2b;
+      padding: 1.75rem 1.75rem 1.5rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
     }
 
     .case-tag {
@@ -277,25 +348,58 @@
     }
 
     .case-title {
-      font-size: 1.02rem;
-      margin: 0 0 0.6rem;
+      font-size: 1.3rem;
+      margin: 0 0 0.25rem;
     }
 
-    .case-metric {
-      font-size: 0.86rem;
-      color: #f7d2a3;
-      margin-bottom: 0.4rem;
+    .case-subtitle {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+
+    .case-card p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      opacity: 0.85;
+      margin-bottom: 0.9rem;
     }
 
     .case-card ul {
-      margin: 0;
+      margin: 0 0 0.9rem;
       padding-left: 1.1rem;
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       color: rgba(245, 233, 221, 0.9);
     }
 
     .case-card li {
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .case-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-top: 0.75rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .case-code {
+      background: #060606;
+      border-radius: 0.75rem;
+      border: 1px solid #272727;
+      padding: 0.75rem 0.9rem;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      margin-bottom: 0.9rem;
+    }
+
+    .case-spec {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
     }
 
     /* Contact */
@@ -351,12 +455,14 @@
 </head>
 <body>
   <header>
-   <nav class="nav-links">
-  <a href="#services">Services</a>
-  <a href="#portfolio">Portfolio</a>
-  <a href="kdp.html"> Amazon KDP(FR)</a>
-  <a href="kdp_EN.html"> Amazon KDP(EN)</a>
-</nav>
+    <div class="nav">
+      <div class="logo">AI BY ELO <span>studio</span></div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="kdp.html">Amazon KDP (FR)</a>
+        <a href="kdp_EN.html">Amazon KDP (EN)</a>
+      </nav>
     </div>
   </header>
 
@@ -394,19 +500,6 @@
 
       <aside class="hero-card">
         <h3>How I work</h3>
-        <section>
-  <h3>About Elo</h3>
-  <p>
-    I’m Elo B, a French AI content & automation consultant based between Paris and Dubai.
-    I’ve spent almost 10 years in the airline industry working on training and operations,
-    and since 2022 I’ve been using AI daily to design smarter content systems.
-  </p>
-  <p>
-    On the side, I’ve published more than 90 eBooks on Amazon KDP – which means I understand
-    the reality of shipping, not just talking about strategy.
-  </p>
-</section>
-
         <p>
           I don’t just “generate content with AI”. I design systems: inputs, prompts, templates and
           workflows you can reuse on your own – in French or English – without feeling overwhelmed.
@@ -418,8 +511,22 @@
       </aside>
     </section>
 
+    <!-- ABOUT -->
+    <section class="about-section">
+      <h3>About Elo</h3>
+      <p>
+        I’m Elo B, a French AI content & automation consultant based between Paris and Dubai.
+        I’ve spent almost 10 years in the airline industry working on training and operations,
+        so I care a lot about clear processes, checklists and systems that actually work.
+      </p>
+      <p>
+        Since 2022, I’ve been using AI daily to design smarter content workflows for myself and others.
+        On the side, I’ve published more than 90 eBooks on Amazon KDP – which means I understand
+        the reality of shipping, not just talking about strategy.
+      </p>
+    </section>
+
     <!-- SERVICES -->
-    <p><em>Using AI since 2022 • 90+ eBooks on Amazon KDP • 10 years in training & operations in the airline industry</em></p>
     <section id="services" class="section">
       <p class="section-tag">Services</p>
       <h2 class="section-title">What we can build together</h2>
@@ -428,16 +535,20 @@
         AI-assisted content systems, KDP publishing and hospitality content.
       </p>
 
+      <p class="metrics-line">
+        Using AI since 2022 • 90+ eBooks on Amazon KDP • 10 years in training &amp; operations in the airline industry
+      </p>
+
       <div class="cards-grid">
         <article class="card">
-          <h3>AI content systems & automation</h3>
+          <h3>AI content systems &amp; automation</h3>
           <p>
             We map your current content workflow, then design prompts, templates and automations
             so you can publish consistently without burning out.
           </p>
           <ul>
-            <li>Audit of your current content & processes.</li>
-            <li>Prompt libraries & reusable templates (Notion / Google Docs).</li>
+            <li>Audit of your current content &amp; processes.</li>
+            <li>Prompt libraries &amp; reusable templates (Notion / Google Docs).</li>
             <li>AI-powered outlines, scripts and captions – still in your tone of voice.</li>
             <li>Simple automations to save hours every week.</li>
           </ul>
@@ -458,126 +569,134 @@
         </article>
 
         <article class="card">
-          <h3>Hotel & hospitality content with AI</h3>
+          <h3>Hotel &amp; hospitality content with AI</h3>
           <p>
             For hotels and hospitality brands who want warm, aspirational content at scale
             – without losing the high-end touch of their brand.
           </p>
           <ul>
             <li>AI frameworks for room types, offers and stay experiences.</li>
-            <li>Scripts & shotlists for short-form video (Reels, TikTok, Shorts).</li>
-            <li>Story-driven email & social content around guest journeys.</li>
+            <li>Scripts &amp; shotlists for short-form video (Reels, TikTok, Shorts).</li>
+            <li>Story-driven email &amp; social content around guest journeys.</li>
             <li>Systems your team can reuse long after our work together.</li>
           </ul>
         </article>
       </div>
     </section>
 
-   <section>
-     <p><em>
-Using AI since 2022 • 90+ eBooks published on Amazon KDP • 10 years in training & operations in the airline industry
-</em></p>
+    <!-- CASE STUDIES -->
+    <section id="portfolio" class="case-section">
+      <div class="case-intro">
+        <h2>Case Studies &amp; Portfolio</h2>
+        <h3>A glimpse of how I use AI in real projects</h3>
+        <p>
+          Below are two spec-work examples I created as part of my own upskilling.
+          They show how I think: <strong>strategy first</strong>, AI as a tool – not a magic trick.
+          Each project is built as a system: prompts, workflows and assets you can reuse,
+          not one-shot content.
+        </p>
+      </div>
 
-  <h2>Case Studies & Portfolio</h2>
-  <h3>A glimpse of how I use AI in real projects</h3>
-  <p>
-    Below are two “spec work” examples I created as part of my own upskilling.
-    They show how I think: strategy first, AI as a tool – not a magic trick.
-  </p>
+      <div class="case-grid">
+        <!-- CASE 1 -->
+        <article class="case-card">
+          <div class="case-tag">Amazon KDP &amp; Beauty</div>
+          <h4 class="case-title">“Wood Therapy Glow”</h4>
+          <p class="case-subtitle">
+            AI-powered content system for a maderotherapy eBook.
+          </p>
 
-  <!-- CASE 1 -->
-     <p><strong>What this shows about how I work</strong></p>
-<ul>
-  <li>Systems thinking: I turn one asset (an eBook) into a full content ecosystem.</li>
-  <li>AI as a leverage: prompts & templates you can reuse, not one-shot magic.</li>
-  <li>Business focus: always link content to a simple, realistic funnel.</li>
-</ul>
+          <p><strong>Project type</strong> — spec work for a solo beauty practitioner who wants to sell a
+            premium maderotherapy eBook and stop posting random content on Instagram.</p>
 
-  <article>
-    <h4>Case study • Amazon KDP & beauty</h4>
-    <h5>“Wood Therapy Glow” – AI-powered content system for a maderotherapy eBook</h5>
+          <p><strong>My role</strong> — AI content strategist for KDP &amp; social media.</p>
 
-    <p><strong>Project type (spec work)</strong><br>
-      Solo beauty practitioner who wants to sell a premium maderotherapy eBook
-      and stop posting “random” content on Instagram.
-    </p>
+          <div class="case-label">What I built with AI</div>
+          <ul>
+            <li>Clarified the positioning of the eBook as a <strong>premium, evidence-based guide</strong>
+              (not another generic cellulite PDF).</li>
+            <li>Turned the eBook outline into a <strong>30-day content ecosystem</strong> mixing Reels,
+              carousels and nurture emails.</li>
+            <li>Created a reusable <strong>prompt library</strong> for FAQs, objections and post-purchase flows.</li>
+            <li>Mapped a simple funnel: <strong>Instagram → free checklist → eBook → 1:1 package</strong>.</li>
+          </ul>
 
-    <p><strong>My role</strong><br>
-      AI content strategist for KDP & social media.
-    </p>
-
-    <h6>What I built with AI</h6>
-    <ul>
-      <li>Clarified the positioning of the eBook as a <strong>premium, evidence-based guide</strong>
-          (not another generic cellulite PDF).</li>
-      <li>Turned the eBook outline into a <strong>30-day content ecosystem</strong>
-          (Reels, carousels, emails).</li>
-      <li>Created a reusable <strong>prompt library</strong> for FAQs, objections and post-purchase emails.</li>
-      <li>Mapped a simple funnel: <strong>Instagram → free checklist → eBook → 1:1 package</strong>.</li>
-    </ul>
-
-    <h6>Example ROCC prompt I used</h6>
-    <pre><code>Role: You are a senior content strategist for a beauty practitioner specialised in wood therapy.
+          <div class="case-label">Example ROCC prompt</div>
+          <pre class="case-code"><code>Role: You are a senior content strategist for a beauty practitioner specialised in wood therapy.
 Objective: Turn one eBook outline into 30 days of Instagram content + 10 nurture emails.
 Context: Audience = French-speaking women 25–45, interested in natural body contouring, sceptical about fake promises, mid-range to premium budget. Tone = warm, expert, reassuring.
 Constraints: No medical claims, no “get rich quick / lose 10kg in 10 days” style.
 Output: a table with columns [Day, Format, Hook, Core message, CTA, Notes for visual].</code></pre>
 
-    <h6>Outcome (for portfolio)</h6>
-    <ul>
-      <li>A structured calendar the client could execute in 2–3 hours per week instead of improvising.</li>
-      <li>A reusable AI prompt system that turns any new chapter, FAQ or testimonial into content in minutes.</li>
-      <li>Clear path from visibility → trust → eBook sales → higher-ticket services.</li>
-      <p><em>Spec work – example project designed for my portfolio.</em></p>
+          <div class="case-label">Outcome</div>
+          <ul>
+            <li>A structured calendar the client could execute in 2–3 hours per week instead of improvising.</li>
+            <li>A reusable AI prompt system that turns any new chapter, FAQ or testimonial into content in minutes.</li>
+            <li>Designed to move from 1–2 random posts per week to a consistent, strategic presence.</li>
+          </ul>
 
-    </ul>
-  </article>
+          <div class="case-label">What this shows about how I work</div>
+          <ul>
+            <li>Systems thinking: I turn one asset (an eBook) into a full content ecosystem.</li>
+            <li>AI as leverage, not a toy: prompts and templates you can reuse long-term.</li>
+            <li>Business focus: content always tied to a simple, realistic funnel.</li>
+          </ul>
 
-  <!-- CASE 2 -->
- <p><strong>What this shows about how I work</strong></p>
-<ul>
-  <li>Understanding of guest journeys in hospitality.</li>
-  <li>Ability to brief creators (shotlists) + support marketing teams (prompts & captions).</li>
-  <li>Focus on consistency and saving time for the team.</li>
-</ul>
-  <article>
-    <h4>Case study • Hospitality & AI</h4>
-    <h5>AI-powered content system for a luxury hotel in Dubai</h5>
+          <p class="case-spec">
+            Spec work – example project designed for my portfolio.
+          </p>
+        </article>
 
-    <p><strong>Project type (spec work)</strong><br>
-      5★ beachfront hotel in Dubai that wants more consistent content without hiring
-      a full in-house content team.
-    </p>
+        <!-- CASE 2 -->
+        <article class="case-card">
+          <div class="case-tag">Hospitality &amp; AI</div>
+          <h4 class="case-title">AI content system for a luxury hotel in Dubai</h4>
+          <p class="case-subtitle">
+            From scattered posts to a warm, consistent brand story.
+          </p>
 
-    <p><strong>My role</strong><br>
-      AI content & storytelling strategist for hospitality.
-    </p>
+          <p><strong>Project type</strong> — spec work for a 5★ beachfront hotel in Dubai that wants more
+            consistent content without hiring a full in-house content team.</p>
 
-    <h6>What I built with AI</h6>
-    <ul>
-      <li>Mapped the full <strong>guest journey</strong> (dreaming → booking → stay → check-out).</li>
-      <li>Designed AI prompt frameworks that turn simple shoot notes into captions & short-form scripts.</li>
-      <li>Created shotlist templates for vertical video (lobby, suites, pool, spa, rooftop, restaurant).</li>
-      <li>Built a weekly content system mixing lifestyle, offers and UGC-style posts.</li>
-    </ul>
+          <p><strong>My role</strong> — AI content &amp; storytelling strategist for hospitality.</p>
 
-    <h6>Example ROCC prompt I used</h6>
-    <pre><code>Role: You are a senior copywriter for a 5-star beachfront hotel in Dubai.
+          <div class="case-label">What I built with AI</div>
+          <ul>
+            <li>Mapped the full <strong>guest journey</strong> (dreaming → booking → stay → check-out).</li>
+            <li>Designed AI prompt frameworks that turn simple shoot notes into captions and short-form scripts.</li>
+            <li>Created shot-list templates for vertical video (lobby, suites, pool, spa, rooftop, restaurant).</li>
+            <li>Built a weekly content system mixing lifestyle posts, offers and UGC-style moments.</li>
+          </ul>
+
+          <div class="case-label">Example ROCC prompt</div>
+          <pre class="case-code"><code>Role: You are a senior copywriter for a 5-star beachfront hotel in Dubai.
 Objective: Write 3 Instagram captions for vertical videos from today’s shoot.
 Context: Target = couples and small families looking for a warm luxury stay, mostly from Europe and GCC. The shoot notes describe each scene (location, time of day, vibe).
 Constraints: Max 80 words per caption, no clichés ("paradise", "unforgettable"), keep it sensory and concrete. End each caption with a soft CTA to save or enquire.</code></pre>
 
-    <h6>Outcome (for portfolio)</h6>
-    <ul>
-      <li>A repeatable AI-assisted content system the team can reuse after our collaboration.</li>
-      <li>More consistent, on-brand content aligned with a warm, high-end positioning.</li>
-      <li>Time saved on captions and ideas: from several hours to under one hour per week.</li>
-      <p><em>Spec work – example project designed for my portfolio.</em></p>
+          <div class="case-label">Outcome</div>
+          <ul>
+            <li>A repeatable AI-assisted content system the team can reuse after our collaboration.</li>
+            <li>More consistent, on-brand content aligned with a warm, high-end positioning.</li>
+            <li>Designed to reduce weekly caption writing from several hours to under one hour.</li>
+          </ul>
 
-    </ul>
-  </article>
-</section>
+          <div class="case-label">What this shows about how I work – hospitality</div>
+          <ul>
+            <li>Good understanding of guest journeys and what matters emotionally at each moment.</li>
+            <li>Ability to brief creators (shotlists) and support marketing teams (prompts &amp; captions).</li>
+            <li>Focus on consistency and time saved for busy hotel teams.</li>
+          </ul>
 
+          <p class="case-spec">
+            Spec work – example project designed for my portfolio.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section">
       <h2 class="section-title">Tell me where you are – I’ll tell you if I can help</h2>
 
       <div class="contact-box">
@@ -593,29 +712,28 @@ Constraints: Max 80 words per caption, no clichés ("paradise", "unforgettable")
         </ul>
       </div>
     </section>
-<section id="kdp-training" class="section">
-  <div class="container">
-    <h2>Amazon KDP training</h2>
-    <p class="hero-sub">
-      Learn how to publish your first eBook on Amazon KDP in a few hours, step by step
-      with me (Elo B). Choose the French or English version of the program.
-    </p>
 
-    <div class="cta-row">
-      <a href="kdp_FR.html" class="btn-primary">
-        📘 Formation KDP (FR)
-      </a>
-      <a href="kdp_EN.html" class="btn-ghost">
-        📗 KDP Training (EN)
-      </a>
-    </div>
-  </div>
-</section>
+    <!-- KDP TRAINING -->
+    <section id="kdp-training" class="section">
+      <h2 class="section-title">Amazon KDP training</h2>
+      <p class="section-intro">
+        Learn how to publish your first eBook on Amazon KDP in a few hours, step by step
+        with me (Elo B). Choose the French or English version of the program.
+      </p>
 
+      <div class="cta-row">
+        <a href="kdp_FR.html" class="btn btn-primary">
+          📘 Formation KDP (FR)
+        </a>
+        <a href="kdp_EN.html" class="btn btn-ghost">
+          📗 KDP Training (EN)
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer>
-    © <span id="year"></span> AI by Elo – Content & Automation Studio. All rights reserved.
+    © <span id="year"></span> AI by Elo – Content &amp; Automation Studio. All rights reserved.
   </footer>
 
   <script>
