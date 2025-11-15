@@ -12,14 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-    .script-accent {
-  font-family: "Great Vibes", cursive;
-  font-size: 1.3rem;
-  letter-spacing: 0.04em;
-  margin-top: 0.4rem;
-  opacity: 0.9;
-}
-
     * { box-sizing: border-box; }
 
     body {
@@ -116,8 +108,16 @@
       margin-bottom: 2rem;
     }
 
+    .script-accent {
+      font-family: "Great Vibes", cursive;
+      font-size: 1.3rem;
+      letter-spacing: 0.04em;
+      margin-top: 0.4rem;
+      opacity: 0.9;
+    }
+
     /* Hero */
-<p class="script-accent">focused, intentional content.</p>
+
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
@@ -149,7 +149,7 @@
       color: rgba(245, 233, 221, 0.92);
       max-width: 34rem;
       line-height: 1.6;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.2rem;
     }
 
     .hero-badges {
@@ -271,24 +271,52 @@
       margin-bottom: 0.35rem;
     }
 
-    /* About section */
+    /* About section with photo */
 
-    .about-section {
+    .about-wrapper {
+      display: flex;
+      justify-content: center;
       margin-bottom: 4rem;
-      max-width: 720px;
     }
 
-    .about-section h3 {
-      font-size: 1.5rem;
+    .about-card {
+      max-width: 720px;
+      width: 100%;
+      background: rgba(10, 6, 8, 0.96);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(245, 233, 221, 0.16);
+      padding: 1.75rem 1.6rem 1.6rem;
+      text-align: left;
+    }
+
+    .about-photo {
+      display: block;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 1.25rem;
+      margin: 0 auto 1.2rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+    }
+
+    .about-card h3 {
+      font-size: 1.4rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
+      margin: 0 0 0.75rem;
+      text-align: left;
     }
 
-    .about-section p {
+    .about-card p {
       line-height: 1.7;
-      opacity: 0.85;
+      opacity: 0.88;
       margin-bottom: 0.75rem;
+      font-size: 0.94rem;
+    }
+
+    .about-card .script-accent {
+      text-align: left;
+      margin-bottom: 0;
     }
 
     .metrics-line {
@@ -299,7 +327,7 @@
       margin: 1.5rem 0 2.5rem;
     }
 
-    /* Case Studies – new layout */
+    /* Case Studies – layout */
 
     .case-section {
       margin-bottom: 4rem;
@@ -410,6 +438,54 @@
       margin-top: 0.25rem;
     }
 
+    details {
+      margin-bottom: 0.8rem;
+    }
+
+    details summary {
+      cursor: pointer;
+      font-size: 0.84rem;
+      opacity: 0.85;
+      margin-bottom: 0.3rem;
+      list-style: none;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details summary::before {
+      content: "▸ ";
+      display: inline-block;
+      transform: translateY(-1px);
+      opacity: 0.75;
+    }
+
+    details[open] summary::before {
+      content: "▾ ";
+    }
+
+    /* Video section */
+
+    .video-section {
+      margin-bottom: 4rem;
+    }
+
+    .video-frame {
+      border-radius: 1.4rem;
+      border: 1px solid rgba(245, 233, 221, 0.16);
+      overflow: hidden;
+      background: #000;
+      max-width: 720px;
+    }
+
+    .video-frame video {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #000;
+    }
+
     /* Contact */
 
     .contact-box {
@@ -458,6 +534,9 @@
       main {
         padding-inline: 1rem;
       }
+      .about-card {
+        padding-inline: 1.3rem;
+      }
     }
   </style>
 </head>
@@ -468,6 +547,7 @@
       <nav class="nav-links">
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
         <a href="kdp.html">Amazon KDP (FR)</a>
         <a href="kdp_EN.html">Amazon KDP (EN)</a>
       </nav>
@@ -478,7 +558,7 @@
     <!-- HERO -->
     <section class="hero section">
       <div>
-        <p class="hero-tagline">AI content & automation studio</p>
+        <p class="hero-tagline">AI content &amp; automation studio</p>
         <h1 class="hero-title">
           Elegant, strategic content <span class="hero-highlight">powered by AI</span> – without losing your voice.
         </h1>
@@ -487,10 +567,11 @@
           personal brands and hospitality. The goal: less chaos, more clarity, and assets that actually
           bring in clients and revenue.
         </p>
+        <p class="script-accent">Focused, intentional, AI-assisted content.</p>
         <div class="hero-badges">
           <span class="badge">Amazon KDP</span>
           <span class="badge">AI content systems</span>
-          <span class="badge">Hotel & hospitality</span>
+          <span class="badge">Hotel &amp; hospitality</span>
           <span class="badge">Paris ⇄ Dubai</span>
         </div>
         <div class="cta-row">
@@ -519,19 +600,24 @@
       </aside>
     </section>
 
-    <!-- ABOUT -->
-    <section class="about-section">
-      <h3>About me</h3>
-      <p>
-        I’m Elo B, a French AI content & automation consultant based between Paris and Dubai.
-        I’ve spent almost 10 years in the airline industry working on training and operations,
-        so I care a lot about clear processes, checklists and systems that actually work.
-      </p>
-      <p>
-        Since 2022, I’ve been using AI daily to design smarter content workflows for myself and others.
-        On the side, I’ve published more than 90 eBooks on Amazon KDP – which means I understand
-        the reality of shipping, not just talking about strategy.
-      </p>
+    <!-- ABOUT WITH PHOTO -->
+    <section id="about" class="about-wrapper">
+      <article class="about-card">
+        <!-- Replace elo-about.jpg by the actual path to your image -->
+        <img src="elo-about.jpg" alt="Elo B in Dubai" class="about-photo">
+        <h3>About Elo</h3>
+        <p>
+          I’m Elo B, a French AI content &amp; automation consultant based between Paris and Dubai.
+          I’ve spent almost 10 years in the airline industry working on training and operations,
+          so I care a lot about clear processes, checklists and systems that actually work.
+        </p>
+        <p>
+          Since 2022, I’ve been using AI daily to design smarter content workflows for myself and others.
+          On the side, I’ve published more than 90 eBooks on Amazon KDP – which means I understand
+          the reality of shipping, not just talking about strategy.
+        </p>
+        <p class="script-accent">Clarity, structure, and content that actually moves your business.</p>
+      </article>
     </section>
 
     <!-- SERVICES -->
@@ -629,12 +715,14 @@
             <li>Mapped a simple funnel: <strong>Instagram → free checklist → eBook → 1:1 package</strong>.</li>
           </ul>
 
-          <div class="case-label">Example ROCC prompt</div>
-          <pre class="case-code"><code>Role: You are a senior content strategist for a beauty practitioner specialised in wood therapy.
+          <details>
+            <summary>See the ROCC prompt I used</summary>
+            <pre class="case-code"><code>Role: You are a senior content strategist for a beauty practitioner specialised in wood therapy.
 Objective: Turn one eBook outline into 30 days of Instagram content + 10 nurture emails.
 Context: Audience = French-speaking women 25–45, interested in natural body contouring, sceptical about fake promises, mid-range to premium budget. Tone = warm, expert, reassuring.
 Constraints: No medical claims, no “get rich quick / lose 10kg in 10 days” style.
 Output: a table with columns [Day, Format, Hook, Core message, CTA, Notes for visual].</code></pre>
+          </details>
 
           <div class="case-label">Outcome</div>
           <ul>
@@ -676,11 +764,13 @@ Output: a table with columns [Day, Format, Hook, Core message, CTA, Notes for vi
             <li>Built a weekly content system mixing lifestyle posts, offers and UGC-style moments.</li>
           </ul>
 
-          <div class="case-label">Example ROCC prompt</div>
-          <pre class="case-code"><code>Role: You are a senior copywriter for a 5-star beachfront hotel in Dubai.
+          <details>
+            <summary>See the ROCC prompt I used</summary>
+            <pre class="case-code"><code>Role: You are a senior copywriter for a 5-star beachfront hotel in Dubai.
 Objective: Write 3 Instagram captions for vertical videos from today’s shoot.
 Context: Target = couples and small families looking for a warm luxury stay, mostly from Europe and GCC. The shoot notes describe each scene (location, time of day, vibe).
 Constraints: Max 80 words per caption, no clichés ("paradise", "unforgettable"), keep it sensory and concrete. End each caption with a soft CTA to save or enquire.</code></pre>
+          </details>
 
           <div class="case-label">Outcome</div>
           <ul>
@@ -700,6 +790,21 @@ Constraints: Max 80 words per caption, no clichés ("paradise", "unforgettable")
             Spec work – example project designed for my portfolio.
           </p>
         </article>
+      </div>
+    </section>
+
+    <!-- SORA VIDEO SECTION -->
+    <section class="video-section section">
+      <h2 class="section-title">AI video experiment</h2>
+      <p class="section-intro">
+        I also experiment with AI-generated video. This space is for short Sora demos that show how I think
+        about storytelling, pacing and prompts for visual content.
+      </p>
+      <div class="video-frame">
+        <!-- Replace sora-demo.mp4 (and poster) by your own Sora export -->
+        <video controls preload="metadata" src="sora-demo.mp4" poster="sora-poster.jpg">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </section>
 
@@ -730,7 +835,7 @@ Constraints: Max 80 words per caption, no clichés ("paradise", "unforgettable")
       </p>
 
       <div class="cta-row">
-        <a href="kdp.html" class="btn btn-primary">
+        <a href="kdp_FR.html" class="btn btn-primary">
           📘 Formation KDP (FR)
         </a>
         <a href="kdp_EN.html" class="btn btn-ghost">
