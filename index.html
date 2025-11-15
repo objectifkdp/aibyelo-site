@@ -153,6 +153,12 @@
       margin-bottom: 1.2rem;
     }
 
+    .hero-note {
+      font-size: 0.86rem;
+      opacity: 0.85;
+      margin-bottom: 1.4rem;
+    }
+
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
@@ -320,7 +326,13 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       opacity: 0.7;
-      margin: 1.5rem 0 2.5rem;
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    .clients-line {
+      font-size: 0.88rem;
+      opacity: 0.8;
+      margin-bottom: 2.5rem;
     }
 
     /* Case Studies – layout */
@@ -467,19 +479,35 @@
       margin-bottom: 4rem;
     }
 
-    .video-frame {
+    .video-grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    @media (min-width: 800px) {
+      .video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .video-item {
       border-radius: 1.4rem;
       border: 1px solid rgba(245, 233, 221, 0.16);
       overflow: hidden;
       background: #000;
-      max-width: 720px;
     }
 
-    .video-frame video {
+    .video-item video {
       display: block;
       width: 100%;
       height: auto;
       background: #000;
+    }
+
+    .video-caption {
+      font-size: 0.86rem;
+      opacity: 0.8;
+      padding: 0.7rem 0.9rem 0.9rem;
     }
 
     /* Contact */
@@ -563,6 +591,9 @@
           personal brands and hospitality. The goal: less chaos, more clarity, and assets that actually
           bring in clients and revenue.
         </p>
+        <p class="hero-note">
+          Open to remote missions and full-time roles – especially in Dubai and the Middle East.
+        </p>
         <p class="script-accent">Focused, intentional, AI-assisted content.</p>
         <div class="hero-badges">
           <span class="badge">Amazon KDP</span>
@@ -599,7 +630,7 @@
     <!-- ABOUT WITH PHOTO -->
     <section id="about" class="about-wrapper">
       <article class="about-card">
-        <!-- Mets ici exactement le nom de ton fichier photo -->
+        <!-- Mets ici le nom de ton fichier photo -->
         <img src="elo-about.jpg" alt="Elo B in Dubai" class="about-photo">
         <h3>About Elo</h3>
         <p>
@@ -627,6 +658,9 @@
 
       <p class="metrics-line">
         Using AI since 2022 • 90+ eBooks on Amazon KDP • 10 years in training &amp; operations in the airline industry
+      </p>
+      <p class="clients-line">
+        I work with: hotels, solo founders, content creators and small marketing teams.
       </p>
 
       <div class="cards-grid">
@@ -791,16 +825,32 @@ Constraints: Max 80 words per caption, no clichés ("paradise", "unforgettable")
 
     <!-- SORA VIDEO SECTION -->
     <section class="video-section section">
-      <h2 class="section-title">AI video experiment</h2>
+      <h2 class="section-title">AI video experiments</h2>
       <p class="section-intro">
-        I also experiment with AI-generated video. This space is for short Sora demos that show how I think
-        about storytelling, pacing and prompts for visual content.
+        I also experiment with AI-generated video. These short Sora demos show how I think about
+        storytelling, pacing and prompts for visual content – from hotel stories to lifestyle and KDP.
       </p>
-      <div class="video-frame">
-        <!-- Assure-toi que le fichier s'appelle bien sora-demo.mp4 et est au même niveau que ce fichier -->
-        <video controls preload="metadata" src="sora-demo.mp4" poster="sora-poster.jpg">
-          Your browser does not support the video tag.
-        </video>
+
+      <div class="video-grid">
+        <div class="video-item">
+          <video controls preload="metadata" src="sora-video-1.mp4" poster="sora-video-1.jpg"></video>
+          <div class="video-caption">Sora demo #1 – hotel / hospitality storytelling.</div>
+        </div>
+
+        <div class="video-item">
+          <video controls preload="metadata" src="sora-video-2.mp4" poster="sora-video-2.jpg"></video>
+          <div class="video-caption">Sora demo #2 – lifestyle & mood-based content.</div>
+        </div>
+
+        <div class="video-item">
+          <video controls preload="metadata" src="sora-video-3.mp4" poster="sora-video-3.jpg"></video>
+          <div class="video-caption">Sora demo #3 – KDP / digital product promotion.</div>
+        </div>
+
+        <div class="video-item">
+          <video controls preload="metadata" src="sora-video-4.mp4" poster="sora-video-4.jpg"></video>
+          <div class="video-caption">Sora demo #4 – experimental sequence (optional slot).</div>
+        </div>
       </div>
     </section>
 
@@ -831,7 +881,7 @@ Constraints: Max 80 words per caption, no clichés ("paradise", "unforgettable")
       </p>
 
       <div class="cta-row">
-        <a href="kdp.html" class="btn btn-primary">
+        <a href="kdp_FR.html" class="btn btn-primary">
           📘 Formation KDP (FR)
         </a>
         <a href="kdp_EN.html" class="btn btn-ghost">
