@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI by Elo – Formations & IA (FR)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Formations et accompagnements IA (ChatGPT, contenu, automatisation) par Élodie, basée entre Paris et Dubaï. Ateliers, 1:1 et Amazon KDP." />
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #2d1b13 0%, #050307 55%, #020107 100%);
+      color: #f5e9dd;
+    }
+
+    a { color: #f5e9dd; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5, 3, 7, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(245, 233, 221, 0.12);
+    }
+
+    .nav {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+
+    .logo span {
+      opacity: 0.7;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      opacity: 0.82;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      padding: 0.25rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 233, 221, 0.28);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #f5e9dd;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      margin: 0 0 0.75rem;
+    }
+
+    .section-intro,
+    .hero-sub {
+      max-width: 40rem;
+      color: rgba(245, 233, 221, 0.92);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .hero-tagline {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(245, 233, 221, 0.7);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3.6vw, 2.9rem);
+      line-height: 1.1;
+      margin: 0 0 1rem;
+    }
+
+    .hero-highlight {
+      color: #f7d2a3;
+    }
+
+    .hero-text {
+      font-size: 0.98rem;
+      color: rgba(245, 233, 221, 0.92);
+      max-width: 34rem;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .badge {
+      border-radius: 999px;
+      border: 1px solid rgba(245, 233, 221, 0.2);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.75rem;
+      color: rgba(245, 233, 221, 0.9);
+      background: rgba(8, 5, 7, 0.9);
+    }
+
+    .hero-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(245, 233, 221, 0.15);
+      padding: 1.4rem 1.45rem;
+      background: radial-gradient(circle at top left, #3a2720 0%, #0a0507 55%, #050307 100%);
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-card p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(245, 233, 221, 0.9);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f5e9dd, #d9b28a);
+      color: #1b0f08;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(245, 233, 221, 0.35);
+      color: #f5e9dd;
+    }
+
+    .btn:hover {
+      opacity: 0.93;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .cta-note {
+      font-size: 0.85rem;
+      color: rgba(245, 233, 221, 0.8);
+    }
+
+    /* Cards / grid */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      border-radius: 1.1rem;
+      border: 1px solid rgba(245, 233, 221, 0.14);
+      background: rgba(7, 4, 6, 0.96);
+      padding: 1.3rem 1.4rem 1.4rem;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.02rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: rgba(245, 233, 221, 0.9);
+      margin-bottom: 0.8rem;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.88rem;
+      color: rgba(245, 233, 221, 0.9);
+    }
+
+    .card li {
+      margin-bottom: 0.35rem;
+    }
+
+    .card video {
+      width: 100%;
+      border-radius: 0.8rem;
+      margin-top: 0.75rem;
+      display: block;
+    }
+
+    /* Contact */
+
+    .contact-box {
+      border-radius: 1.1rem;
+      border: 1px solid rgba(245, 233, 221, 0.18);
+      padding: 1.5rem 1.4rem;
+      background: rgba(7, 4, 6, 0.96);
+      max-width: 560px;
+    }
+
+    .contact-box p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(245, 233, 221, 0.9);
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.9rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(245, 233, 221, 0.18);
+      padding: 1.2rem 1.5rem 1.8rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(245, 233, 221, 0.7);
+    }
+
+    figure { margin: 0; }
+    figure img {
+      width: 100%;
+      border-radius: 1rem;
+      display: block;
+    }
+    figure figcaption {
+      font-size: 0.82rem;
+      color: rgba(245, 233, 221, 0.8);
+      margin-top: 0.4rem;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-card {
+        order: -1;
+      }
+      .nav {
+        padding-inline: 1rem;
+      }
+      main {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">AI BY ELO <span>Studio</span></div>
+      <nav class="nav-links">
+        <a href="#services">Ateliers IA</a>
+        <a href="#about">À propos</a>
+        <a href="#kdp">Amazon KDP</a>
+        <a href="#sora">Sora</a>
+        <a href="index.html">English</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO FR -->
+    <section class="hero section">
+      <div>
+        <p class="hero-tagline">Formations & accompagnements IA</p>
+        <h1 class="hero-title">
+          Utiliser l’<span class="hero-highlight">IA au quotidien</span> pour créer, structurer et gagner du temps.
+        </h1>
+        <p class="hero-text">
+          Je vous aide à utiliser l’IA (ChatGPT & co) de façon concrète pour vos contenus, vos projets
+          et votre organisation – sans jargon, sans promesses magiques, en partant de votre réalité.
+        </p>
+        <div class="hero-badges">
+          <span class="badge">ChatGPT</span>
+          <span class="badge">Contenus & eBooks</span>
+          <span class="badge">Structuration & process</span>
+          <span class="badge">Paris ⇄ Dubaï</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:elodie.ballonad@gmail.com?subject=Demande%20d%27atelier%20IA&body=Bonjour%20Elo,%0A%0AJe souhaiterais en savoir plus%20:%0A- Contexte%20:%20%0A- Type%20d%27atelier%20ou%20accompagnement%20:%20%0A- Nombre%20de%20personnes%20:%20%0A- Vos%20disponibilit%C3%A9s%20:%20%0A%0AMerci%20!">
+            Demander un appel découverte
+          </a>
+          <a class="btn btn-ghost" href="#kdp">
+            Voir la partie Amazon KDP
+          </a>
+          <p class="cta-note">
+            Vous pouvez aussi m’écrire directement sur WhatsApp : <strong>+33&nbsp;6&nbsp;64&nbsp;86&nbsp;36&nbsp;46</strong>.
+          </p>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>Pour qui ?</h3>
+        <p>
+          Pour les indépendants, petites structures, équipes associatives ou services qui veulent
+          enfin utiliser l’IA de façon utile, sans se perdre dans les tutos et les buzzwords.
+        </p>
+
+        <h3>Ma façon de travailler</h3>
+        <p>
+          On part de vos cas concrets (mails, contenus, offres, supports), et je construis avec vous
+          des prompts, des modèles et des réflexes simples que vous pouvez réutiliser seuls après.
+        </p>
+        <p>
+          Je suis là pour <strong>clarifier</strong>, structurer et vous rendre autonome – pas pour
+          vous rendre dépendants de moi ou de l’outil.
+        </p>
+      </aside>
+    </section>
+
+    <p><em>IA au quotidien depuis 2022 • 90+ eBooks publiés sur Amazon KDP • 10 ans en gestion de formation & opérations (Air France / HOP)</em></p>
+
+    <!-- SERVICES FR -->
+    <section id="services" class="section">
+      <p class="section-tag">Ateliers & accompagnements</p>
+      <h2 class="section-title">Ce qu’on peut faire ensemble</h2>
+      <p class="section-intro">
+        Tous les formats peuvent être adaptés à votre contexte (collectif ou individuel), en présentiel
+        ou à distance. L’objectif reste le même : vous faire gagner du temps et de la clarté grâce à l’IA.
+      </p>
+
+      <div class="cards-grid">
+        <article class="card">
+          <h3>Atelier Découverte IA & ChatGPT</h3>
+          <p>
+            Comprendre ce qu’est réellement l’IA générative, ce qu’elle peut (ou pas) faire pour vous,
+            et repartir avec les bons réflexes pour l’utiliser au quotidien.
+          </p>
+          <ul>
+            <li>Format : 2h ou 3h, en ligne ou en présentiel.</li>
+            <li>Démystifier l’IA : limites, risques, bonnes pratiques.</li>
+            <li>Comprendre comment “parler” à l’IA (bases des prompts).</li>
+            <li>Cas pratiques à partir de vos vrais besoins (emails, textes, idées, etc.).</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Atelier “Créer ton eBook avec l’IA”</h3>
+          <p>
+            Transformer une idée floue en eBook structuré, grâce à l’IA – tout en gardant votre voix
+            et votre expertise.
+          </p>
+          <ul>
+            <li>Format : 3h, en petit groupe ou en individuel.</li>
+            <li>Clarifier votre sujet, votre cible et votre promesse.</li>
+            <li>Générer et affiner un sommaire cohérent avec ChatGPT.</li>
+            <li>Construire des prompts pour rédiger et réécrire dans votre style.</li>
+            <li>Premières bases pour publier sur Amazon KDP si vous le souhaitez.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Accompagnement individuel IA (1:1)</h3>
+          <p>
+            Une session sur-mesure pour appliquer l’IA à votre situation précise : business, carrière,
+            organisation ou création de contenus.
+          </p>
+          <ul>
+            <li>Format : 60 ou 90 minutes en visio.</li>
+            <li>Diagnostic express de votre contexte et de vos blocages.</li>
+            <li>Construction de prompts personnalisés (que vous gardez ensuite).</li>
+            <li>Plan d’action simple pour continuer seule / seul après la séance.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT FR AVEC PHOTO -->
+    <section id="about" class="section">
+      <p class="section-tag">À propos</p>
+      <h2 class="section-title">Qui suis-je ?</h2>
+      <p class="section-intro">
+        Je m’appelle <strong>Élodie</strong>, mais beaucoup me connaissent sous le nom de
+        <strong>“Elo B”</strong>. Je vis entre Paris et Dubaï, et je construis des systèmes autour
+        de l’IA pour rendre les projets plus simples et plus fluides.
+      </p>
+
+      <div class="cards-grid">
+        <article class="card">
+          <figure>
+            <!-- change le nom du fichier si besoin -->
+            <img src="elo-about.jpg" alt="Élodie à Dubaï" />
+            <figcaption>Élodie (“Elo B”) – AI content & automation, entre Paris et Dubaï.</figcaption>
+          </figure>
+        </article>
+
+        <article class="card">
+          <h3>Mon côté “structure & process”</h3>
+          <p>
+            Depuis presque 10 ans, je travaille dans la gestion de formation et l’organisation de
+            dispositifs complexes chez Air France / HOP.
+          </p>
+          <ul>
+            <li>Planification et logistique de formations.</li>
+            <li>Coordination d’équipes et de ressources.</li>
+            <li>Goût pour les check-lists et les systèmes clairs.</li>
+          </ul>
+
+          <h3>Mon côté “création & KDP”</h3>
+          <p>
+            En parallèle, j’ai publié plus de <strong>90 eBooks</strong> sur Amazon KDP dans
+            différents univers (spiritualité, féminin, organisation, etc.).
+          </p>
+          <ul>
+            <li>Habitude de passer d’une idée à un produit fini.</li>
+            <li>Vision globale : contenu, mise en forme, publication.</li>
+            <li>Compréhension des vraies contraintes du terrain (temps, énergie, budget).</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- KDP FR -->
+    <section id="kdp" class="section">
+      <p class="section-tag">Amazon KDP</p>
+      <h2 class="section-title">Publier votre eBook sur Amazon KDP</h2>
+      <p class="section-intro">
+        Vous avez un savoir, une histoire, une méthode… mais vous repoussez toujours l’idée
+        d’écrire un livre ? Je vous accompagne pour transformer cette idée en eBook publié
+        sur Amazon KDP, sans vous perdre dans la technique.
+      </p>
+
+      <div class="cards-grid">
+        <article class="card">
+          <h3>Ce que je peux vous apporter</h3>
+          <ul>
+            <li>Clarification de votre angle, de votre promesse et de votre cible.</li>
+            <li>Sommaire structuré, pensé pour votre lectrice / lecteur.</li>
+            <li>Utilisation intelligente de l’IA pour accélérer la rédaction.</li>
+            <li>Notions de base pour la mise en page, la couverture et la publication.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Accéder à mes formations KDP</h3>
+          <p>
+            J’ai créé des programmes dédiés à KDP, en français et en anglais. Vous pouvez les
+            découvrir ici :
+          </p>
+          <ul>
+            <li><a href="kdp.html">📘 Formation KDP (FR)</a></li>
+            <li><a href="kdp_EN.html">📗 KDP Training (EN)</a></li>
+          </ul>
+          <p>
+            Et si vous préférez un accompagnement individuel, indiquez-le simplement dans votre
+            message de contact.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- VIDÉO IA / SORA -->
+    <section id="sora" class="section">
+      <p class="section-tag">Vidéo IA</p>
+      <h2 class="section-title">Expérimentations vidéo avec Sora</h2>
+      <p class="section-intro">
+        J’expérimente aussi la vidéo générée par IA (Sora) pour tester des idées de storytelling,
+        d’ambiance et de scénarios visuels, notamment pour l’hôtellerie, le lifestyle et les produits digitaux.
+      </p>
+
+      <div class="cards-grid">
+        <article class="card">
+          <h3>Demo Sora – aperçu général</h3>
+          <p>
+            Première exploration des capacités visuelles de Sora : rythme, mouvements de caméra et ambiance.
+          </p>
+          <video src="sora-demo.mp4" controls></video>
+        </article>
+
+        <article class="card">
+          <h3>Sora vidéo #1 – Ambiance hôtelière</h3>
+          <p>
+            Séquence inspirée d’un hôtel : accueil, détails, atmosphère chaleureuse et haut de gamme.
+          </p>
+          <video src="sora-video-1.mp4" controls></video>
+        </article>
+
+        <article class="card">
+          <h3>Sora vidéo #2 – Lifestyle & storytelling</h3>
+          <p>
+            Vidéo lifestyle pour explorer le rythme narratif, les transitions et le côté “aspirationnel”.
+          </p>
+          <video src="sora-video-2.mp4" controls></video>
+        </article>
+
+        <article class="card">
+          <h3>Sora vidéo #3 – Promo eBook / KDP</h3>
+          <p>
+            Concept de vidéo autour d’un eBook ou produit digital, pensée pour accompagner un lancement KDP.
+          </p>
+          <video src="sora-video-3.mp4" controls></video>
+        </article>
+
+        <article class="card">
+          <h3>Sora vidéo #4 – Séquence expérimentale</h3>
+          <p>
+            Séquence plus expérimentale pour tester les limites créatives de Sora avant un usage client.
+          </p>
+          <video src="sora-video-4.mp4" controls></video>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT FR -->
+    <section id="contact" class="section">
+      <p class="section-tag">Contact</p>
+      <h2 class="section-title">On en parle ?</h2>
+
+      <div class="contact-box">
+        <p>
+          Dites-moi simplement où vous en êtes (curiosité, projet en réflexion, besoin très concret),
+          et je vous répondrai honnêtement sur ce qu’on peut faire – ou pas – ensemble.
+        </p>
+        <ul class="contact-list">
+          <li><strong>Email IA & contenus :</strong> <a href="mailto:elodie.ballonad@gmail.com">elodie.ballonad@gmail.com</a></li>
+          <li><strong>Email KDP :</strong> <a href="mailto:objectifkdp@gmail.com">objectifkdp@gmail.com</a></li>
+          <li><strong>WhatsApp / Téléphone :</strong> <a href="tel:+33664863646">+33&nbsp;6&nbsp;64&nbsp;86&nbsp;36&nbsp;46</a></li>
+          <li>Basée entre Paris &amp; Dubaï – accompagnements 100&nbsp;% en ligne, déplacements possibles sur demande.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> AI by Elo – Tous droits réservés.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
