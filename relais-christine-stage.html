@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stage de 3ᵉ – Relais Christine | Eline</title>
+  <meta name="description" content="Vitrine du stage de découverte de 3ᵉ d'Eline à l'hôtel Relais Christine, hôtel-boutique 5★ au cœur de Saint-Germain-des-Prés.">
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --bg-soft: #f9f5ee;
+      --accent: #8b3a37;       /* bordeaux */
+      --accent-2: #1f4032;     /* vert profond */
+      --text: #2e2721;
+      --muted: #7b7066;
+      --card: #ffffff;
+      --border: #e0d4c5;
+      --radius: 14px;
+      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #fdf7ee 0, #f1e6d8 38%, #ebddcc 70%, #e3d4c2 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 18px 64px;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+      padding: 26px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.96), rgba(248,242,234,0.98)),
+        radial-gradient(circle at top left, rgba(139,58,55,0.16), transparent 55%);
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(213,196,175,0.8);
+      margin-bottom: 40px;
+    }
+
+    .hero-text h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--accent-2);
+    }
+
+    .hero-text h1 span {
+      display: block;
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 0.24em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+      max-width: 40rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 0.82rem;
+    }
+
+    .pill {
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(151,130,106,0.45);
+      background: #f7efe3;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      color: var(--muted);
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .hero-photo {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(198,179,156,0.9);
+      background: #000;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+    }
+
+    /* SECTIONS */
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+    }
+
+    .section-subtitle {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 26px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      font-size: 0.95rem;
+    }
+
+    .card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    .card p + p {
+      margin-top: 8px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 8px;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    ul li::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 9px;
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--accent-2);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #f5ebe0;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border: 1px solid rgba(151,130,106,0.6);
+    }
+
+    /* GALLERIE */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fdf7ef;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 10px;
+      bottom: 8px;
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,253,249,0.92);
+      color: var(--muted);
+      border: 1px solid rgba(208,189,167,0.9);
+    }
+
+    /* CONCLUSION */
+
+    .quote {
+      font-size: 0.94rem;
+      color: var(--muted);
+      border-left: 2px solid var(--accent);
+      padding-left: 14px;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-photo {
+        max-height: 260px;
+      }
+
+      .two-cols {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>
+          <span>Stage de découverte – 3ᵉ</span>
+          Relais Christine, hôtel-boutique 5★ à Paris
+        </h1>
+        <p class="tagline">
+          Du 24 au 28&nbsp;novembre&nbsp;2025, Eline, élève de 3ᵉ au collège Henri Wallon à Garges-lès-Gonesse, a découvert les coulisses du Relais Christine, un manoir du XVIᵉ siècle transformé en hôtel-boutique de luxe au cœur de Saint-Germain-des-Prés.
+        </p>
+
+        <div class="hero-meta">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>Collège Henri Wallon – Garges-lès-Gonesse</span>
+          </div>
+          <div class="pill">
+            🗓️ Semaine du 24 au 28&nbsp;novembre&nbsp;2025
+          </div>
+          <div class="pill">
+            🌍 Paris 6ᵉ – Saint-Germain-des-Prés
+          </div>
+        </div>
+
+        <p class="hero-note">
+          Cette page présente, avec ses mots, ce que ce stage lui a appris sur les métiers de l’hôtellerie de luxe et sur l’importance du sens du détail dans l’accueil des clients.
+        </p>
+      </div>
+
+      <div class="hero-photo">
+        <!-- Image principale : cour intérieure avec Eline -->
+        <img src="PHOTO-2025-11-16-20-55-11.jpeg" alt="Eline dans la cour intérieure de l'hôtel Relais Christine">
+      </div>
+    </section>
+
+    <!-- 01 · L’HÔTEL -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">01 · L’hôtel</h2>
+        <p class="section-subtitle">Présentation générale du Relais Christine.</p>
+      </div>
+
+      <div class="two-cols">
+        <article class="card">
+          <h3>Un manoir du XVIᵉ siècle au cœur de Paris</h3>
+          <p>
+            Le Relais Christine est un manoir du XVIᵉ siècle situé au cœur de Saint-Germain-des-Prés, à environ six minutes à pied de la gare RER Saint-Michel – Notre-Dame.
+          </p>
+          <p>
+            L’hôtel possède un bar lounge, une salle de sport, un jacuzzi, un sauna, ainsi qu’un spa et un salon de beauté en collaboration avec la maison Guerlain.
+          </p>
+          <p>
+            Il appartient au groupe Bertrand, hérité par Olivier Bertrand, homme d’affaires et chef d’entreprise français. Le Relais Christine cultive le précieux savoir-faire français et garantit à ses clients une expérience inoubliable.
+          </p>
+          <div class="chips">
+            <span class="chip">Manoir du XVIᵉ siècle</span>
+            <span class="chip">Hôtel-boutique 5★</span>
+            <span class="chip">Quartier Saint-Germain</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Une élégance signée Laura Gonzalez</h3>
+          <p>
+            La configuration de l’hôtel a été pensée dans les moindres détails par l’architecte d’intérieur française Laura Gonzalez. Il représente parfaitement l’élégance à la française&nbsp;: des roses blanches à la réception au marbre des chambres les plus somptueuses.
+          </p>
+          <p>
+            Le spa et les espaces bien-être, créés en collaboration avec Guerlain, sont également conçus pour favoriser la détente totale du client.
+          </p>
+          <p class="quote">
+            «&nbsp;On a l’impression de rentrer dans une maison de famille très chic plutôt que dans un hôtel classique.&nbsp;»
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 02 · ESPACES & MÉTIERS -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">02 · Espaces & métiers</h2>
+        <p class="section-subtitle">Réception, salons, chambres et spa vus pendant le stage.</p>
+      </div>
+
+      <div class="two-cols">
+        <article class="card">
+          <h3>La réception & les salons</h3>
+          <p>
+            Après avoir traversé une charmante allée pavée et tranquille, on accède à la réception. On remarque instantanément le soin apporté aux détails&nbsp;: lumières, fleurs, parfums, mobilier…
+          </p>
+          <p>
+            À la suite de la réception se trouvent des salons chaleureux. Le matin, on y sert les petits-déjeuners. Dans la journée, les clients peuvent y prendre un encas ou un thé, et le soir, le bar est à leur disposition.
+          </p>
+          <p>
+            Le personnel qui travaille dans ces espaces fait partie de la <strong>réception</strong> et de la <strong>restauration</strong>&nbsp;: il accueille les clients, répond à leurs demandes et assure le service des boissons et encas.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Les chambres & le service d’étage</h3>
+          <p>
+            Les chambres ont été conçues pour que le client profite d’une expérience raffinée «&nbsp;à la parisienne&nbsp;». Elles sont réparties en plusieurs catégories, de la chambre Cosy jusqu’aux suites avec terrasse.
+          </p>
+          <ul>
+            <li><strong>Chambre Cosy</strong> (≈ 19&nbsp;m²)&nbsp;: pour deux personnes, lit king size ou deux lits jumeaux, vue sur le jardin.</li>
+            <li><strong>Chambre Supérieure</strong> (≈ 22&nbsp;m²)&nbsp;: pour deux personnes, vue jardin ou cour.</li>
+            <li><strong>Chambre Deluxe</strong> (≈ 25&nbsp;m²)&nbsp;: pour deux personnes, vue rue Christine, cour ou jardin, parfois avec petite terrasse.</li>
+            <li><strong>Junior Suite Duplex</strong>&nbsp;: pour deux à trois personnes, avec salon, banquette, bar privé et vue jardin ou cour.</li>
+            <li><strong>Junior Suite Deluxe</strong> (30–35&nbsp;m²)&nbsp;: pour deux à trois personnes, petite terrasse, kitchenette, bar privé, vue jardin ou cour intérieure.</li>
+            <li><strong>Suite</strong> (40–56&nbsp;m²)&nbsp;: pour quatre personnes, sur deux niveaux, deux salles de bain, cuisine, bar privé, vue cour ou rue.</li>
+            <li><strong>Suite Terrasse</strong> (≈ 40&nbsp;m²)&nbsp;: pour trois personnes, deux salles de bain, bar privé et terrasse donnant sur un jardin clos partagé.</li>
+          </ul>
+          <p>
+            Le personnel chargé des chambres fait partie du <strong>service d’étage</strong> : il veille à la propreté, à la préparation des chambres et à tous les petits détails qui rendent le séjour agréable (linge, produits d’accueil, présentation…).
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 · SPA GUERLAIN -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">03 · Le spa Guerlain</h2>
+        <p class="section-subtitle">Un espace entièrement dédié au bien-être.</p>
+      </div>
+
+      <article class="card">
+        <p>
+          Le Relais Christine possède un spa et un salon de beauté en collaboration avec la marque Guerlain. Tout est pensé pour la relaxation : lumière douce, parfums, musique, décor inspiré de la nature et produits de soin haut de gamme.
+        </p>
+        <p>
+          Les clients peuvent réserver des massages, des soins du visage et d’autres rituels de bien-être, réalisés par du personnel formé par Guerlain. Cet espace contribue beaucoup à l’image de luxe et d’élégance de l’hôtel.
+        </p>
+      </article>
+    </section>
+
+    <!-- 04 · GALLERIE PHOTO -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">04 · Quelques photos</h2>
+        <p class="section-subtitle">Ambiance du lieu et détails observés pendant le stage.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <figure class="gallery-item">
+          <img src="PHOTO-2025-11-16-20-55-10 7.jpeg" alt="Entrée de l'hôtel avec plaque Michelin">
+          <figcaption class="gallery-caption">Entrée &amp; plaque Michelin</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="PHOTO-2025-11-16-20-55-11 2.jpeg" alt="Cour intérieure du Relais Christine">
+          <figcaption class="gallery-caption">Cour intérieure</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="PHOTO-2025-11-24-08-58-51.jpeg" alt="Canapé rouge et lustre en cristal dans le lobby de l'hôtel">
+          <figcaption class="gallery-caption">Lobby &amp; salon</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="PHOTO-2025-11-24-08-58-51 2.jpeg" alt="Escalier intérieur décoré de tapis à motifs">
+          <figcaption class="gallery-caption">Escalier principal</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="PHOTO-2025-11-24-12-32-13.jpeg" alt="Table de parfums dans l'espace Guerlain">
+          <figcaption class="gallery-caption">Sélection de parfums</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="PHOTO-2025-11-24-12-32-13 2.jpeg" alt="Espace parfums sous voûte en pierre">
+          <figcaption class="gallery-caption">Spa Guerlain</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="PHOTO-2025-11-24-12-32-13 3.jpeg" alt="Console avec maquillage et pinceaux">
+          <figcaption class="gallery-caption">Maquillage &amp; soins</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="PHOTO-2025-11-24-12-32-13 4.jpeg" alt="Canapé bleu devant une vitrine de flacons">
+          <figcaption class="gallery-caption">Salon cosy</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 05 · BILAN -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">05 · Bilan du stage</h2>
+        <p class="section-subtitle">Ce que cette semaine m’a appris.</p>
+      </div>
+
+      <article class="card">
+        <p>
+          Ce stage m’a permis de découvrir l’hôtellerie de luxe de l’intérieur et de comprendre que chaque détail compte pour que les clients se sentent attendus et privilégiés.
+        </p>
+        <p>
+          J’ai particulièrement aimé l’ambiance calme de l’hôtel, la cour intérieure et le soin apporté à la décoration. J’ai aussi mieux compris le rôle de chaque métier : réception, restauration, service d’étage, spa…
+        </p>
+        <p class="quote">
+          «&nbsp;Je repars avec une meilleure idée des métiers de l’hôtellerie et du service aux clients, et cela me donne envie de continuer à découvrir d’autres univers professionnels.&nbsp;»
+        </p>
+      </article>
+    </section>
+
+    <p class="footer">
+      Page réalisée par Eline, élève de 3ᵉ au collège Henri Wallon (Garges-lès-Gonesse), avec l’aide de sa maman pour la mise en forme web.
+    </p>
+  </main>
+</body>
+</html>
+
