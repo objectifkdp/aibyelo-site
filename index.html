@@ -263,11 +263,13 @@
     /* About figure */
 
     figure { margin: 0; }
+
     figure img {
       width: 100%;
       border-radius: 1rem;
       display: block;
     }
+
     figure figcaption {
       font-size: 0.82rem;
       color: rgba(245, 233, 221, 0.8);
@@ -301,13 +303,6 @@
       margin-bottom: 0.35rem;
     }
 
-    footer {
-      border-top: 1px solid rgba(245, 233, 221, 0.18);
-      padding: 1.2rem 1.5rem 1.8rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: rgba(245, 233, 221, 0.7);
-    }
     .contact-form {
       margin-top: 1rem;
       display: grid;
@@ -341,6 +336,14 @@
       margin-top: 0.3rem;
     }
 
+    footer {
+      border-top: 1px solid rgba(245, 233, 221, 0.18);
+      padding: 1.2rem 1.5rem 1.8rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(245, 233, 221, 0.7);
+    }
+
     @media (max-width: 800px) {
       .hero {
         grid-template-columns: 1fr;
@@ -367,7 +370,7 @@
         <a href="#portfolio">Portfolio</a>
         <a href="#ai-video">AI video</a>
         <a href="#kdp-training">Amazon KDP</a>
-       <a href="fr/">Français</a>
+        <a href="fr/">Français</a>
       </nav>
     </div>
   </header>
@@ -383,25 +386,28 @@
         <p class="hero-text">
           I help you design smart content systems, funnels and automations using AI – for Amazon KDP,
           personal brands and hospitality. The goal: less chaos, more clarity, and assets that actually
-          bring in clients and revenue.
+          bring in clients and revenue. I work remotely with clients worldwide and I’m available for
+          on-site workshops in Dubai and the wider GCC region.
         </p>
-        <div class="hero-badges">
+        <div classhero-badges class="hero-badges">
           <span class="badge">Amazon KDP</span>
           <span class="badge">AI content systems</span>
           <span class="badge">Hotel & hospitality</span>
           <span class="badge">Paris ⇄ Dubai</span>
-              <div class="cta-row">
-          <a class="btn btn-primary" href="https://calendly.com/ai-by-elo/20min-decouverte">
-            Réserver un appel découverte 20 min
+        </div>
+        <div class="cta-row">
+          <!-- remplace l’URL Calendly par la tienne quand tu l’auras -->
+          <a class="btn btn-primary" href="https://calendly.com/ai-by-elo/20min-discovery">
+            Book a 20-min discovery call
           </a>
-          <a class="btn btn-ghost" href="#kdp">
-            Voir la partie Amazon KDP
+          <a class="btn btn-ghost" href="mailto:objectifkdp@gmail.com?subject=AI%20Content%20%2F%20Automation%20-%20Project">
+            Email me your project
           </a>
           <p class="cta-note">
-            Vous pouvez aussi m’écrire directement sur WhatsApp : <strong>+33&nbsp;6&nbsp;64&nbsp;86&nbsp;36&nbsp;46</strong>.
+            Prefer WhatsApp? You can also text me on <strong>+33&nbsp;6&nbsp;64&nbsp;86&nbsp;36&nbsp;46</strong>.
           </p>
         </div>
-
+      </div>
 
       <aside class="hero-card">
         <h3>How I work</h3>
@@ -620,8 +626,28 @@
         <ul class="contact-list">
           <li>Email: <a href="mailto:objectifkdp@gmail.com">objectifkdp@gmail.com</a></li>
           <li>Phone / WhatsApp: <a href="tel:+33664863646">+33&nbsp;6&nbsp;64&nbsp;86&nbsp;36&nbsp;46</a></li>
-          <li>Based between Paris &amp; Dubai – I work fully online.</li>
+          <li>Based between Paris &amp; Dubai – I work fully online and travel for selected projects.</li>
         </ul>
+
+        <!-- Simple contact form – replace the action URL with your Formspree or other service -->
+        <form class="contact-form" action="https://formspree.io/f/your-id" method="POST">
+          <label>
+            Name
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            What would you like help with?
+            <textarea name="message" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="cta-note">
+            <em>Tip:</em> if you prefer, you can still contact me directly by email or WhatsApp.
+          </p>
+        </form>
       </div>
     </section>
 
