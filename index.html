@@ -91,8 +91,7 @@
       margin: 0 0 0.75rem;
     }
 
-    .section-intro,
-    .hero-sub {
+    .section-intro {
       max-width: 40rem;
       color: rgba(245, 233, 221, 0.92);
       line-height: 1.6;
@@ -215,7 +214,7 @@
       color: rgba(245, 233, 221, 0.8);
     }
 
-    /* Services */
+    /* Cards / grid */
 
     .cards-grid {
       display: grid;
@@ -254,49 +253,11 @@
       margin-bottom: 0.35rem;
     }
 
-    /* Case Studies */
-
-    .cases-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .case-card {
-      border-radius: 1.1rem;
-      border: 1px solid rgba(245, 233, 221, 0.16);
-      background: radial-gradient(circle at top left, #3b2820 0%, #090407 55%, #050307 100%);
-      padding: 1.4rem 1.45rem;
-    }
-
-    .case-tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: rgba(245, 233, 221, 0.7);
-      margin-bottom: 0.4rem;
-    }
-
-    .case-title {
-      font-size: 1.02rem;
-      margin: 0 0 0.6rem;
-    }
-
-    .case-metric {
-      font-size: 0.86rem;
-      color: #f7d2a3;
-      margin-bottom: 0.4rem;
-    }
-
-    .case-card ul {
-      margin: 0;
-      padding-left: 1.1rem;
-      font-size: 0.86rem;
-      color: rgba(245, 233, 221, 0.9);
-    }
-
-    .case-card li {
-      margin-bottom: 0.35rem;
+    .card video {
+      width: 100%;
+      border-radius: 0.8rem;
+      margin-top: 0.75rem;
+      display: block;
     }
 
     /* Contact */
@@ -357,66 +318,7 @@
       <nav class="nav-links">
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
-            <!-- AI VIDEO / SORA -->
-    <section id="ai-video" class="section">
-      <p class="section-tag">AI video</p>
-      <h2 class="section-title">Sora AI video experiments</h2>
-      <p class="section-intro">
-        I also experiment with AI-generated video using Sora. These demos show how I think about
-        storytelling, pacing and prompts for visual content – from hospitality to lifestyle and
-        digital products.
-      </p>
-
-      <div class="cards-grid">
-
-        <!-- DEMO 0 -->
-        <article class="card">
-          <h3>General Sora demo</h3>
-          <p>
-            A first exploration of Sora’s visual capabilities – pacing, camera moves and overall mood.
-          </p>
-          <video src="sora-demo.mp4" controls style="width:100%;margin-top:0.75rem;border-radius:0.8rem;"></video>
-        </article>
-
-        <!-- DEMO 1 -->
-        <article class="card">
-          <h3>Sora video #1 – Hospitality mood</h3>
-          <p>
-            A hotel-inspired sequence focused on atmosphere, small details and a warm luxury feeling.
-          </p>
-          <video src="sora-video-1.mp4" controls style="width:100%;margin-top:0.75rem;border-radius:0.8rem;"></video>
-        </article>
-
-        <!-- DEMO 2 -->
-        <article class="card">
-          <h3>Sora video #2 – Lifestyle & storytelling</h3>
-          <p>
-            A lifestyle-oriented demo to explore narrative rhythm and transitions for personal brands.
-          </p>
-          <video src="sora-video-2.mp4" controls style="width:100%;margin-top:0.75rem;border-radius:0.8rem;"></video>
-        </article>
-
-        <!-- DEMO 3 -->
-        <article class="card">
-          <h3>Sora video #3 – Digital product / KDP</h3>
-          <p>
-            A visual concept around digital products and eBooks, testing hooks and product-focused shots.
-          </p>
-          <video src="sora-video-3.mp4" controls style="width:100%;margin-top:0.75rem;border-radius:0.8rem;"></video>
-        </article>
-
-        <!-- DEMO 4 -->
-        <article class="card">
-          <h3>Sora video #4 – Experimental sequence</h3>
-          <p>
-            A more experimental piece to push Sora’s limits, textures and transitions before client work.
-          </p>
-          <video src="sora-video-4.mp4" controls style="width:100%;margin-top:0.75rem;border-radius:0.8rem;"></video>
-        </article>
-
-      </div>
-    </section>
-
+        <a href="#ai-video">AI video</a>
         <a href="#kdp-training">Amazon KDP</a>
         <a href="fr.html">Français</a>
       </nav>
@@ -463,13 +365,13 @@
         </p>
         <p>
           My clients come to me for clarity, structure and a mix of strategy + execution. I tell you
-          honestly what makes sense for your context, not what just sounds good on Instagram.
+          honestly what makes sense for your context, not what sounds good on Instagram.
         </p>
         <h3>About Elo</h3>
         <p>
           I’m Elo B, a French AI content & automation consultant based between Paris and Dubai.
-          I’ve spent almost 10 years in the airline industry working on training and operations,
-          and since 2022 I’ve been using AI daily to design smarter content systems.
+          I’ve spent almost 10 years in the airline industry working on training and operations, and
+          since 2022 I’ve been using AI daily to design smarter content systems.
         </p>
         <p>
           On the side, I’ve published more than 90 eBooks on Amazon KDP – which means I understand
@@ -534,7 +436,7 @@
       </div>
     </section>
 
-    <!-- PORTFOLIO / CASE STUDIES -->
+    <!-- PORTFOLIO -->
     <section id="portfolio" class="section">
       <p class="section-tag">Portfolio</p>
       <h2 class="section-title">Case Studies & Portfolio</h2>
@@ -542,35 +444,84 @@
         A glimpse of how I use AI in real (and spec-work) projects. Strategy first, AI as a tool – not a magic trick.
       </p>
 
-      <div class="cases-grid">
-        <!-- CASE 1 -->
-        <article class="case-card">
-          <p class="case-tag">Case study • Amazon KDP & beauty</p>
-          <h3 class="case-title">“Wood Therapy Glow” – AI-powered content system for a maderotherapy eBook</h3>
-          <p class="case-metric">Spec work • Solo practitioner • KDP + Instagram ecosystem</p>
+      <div class="cards-grid">
+        <article class="card">
+          <h3>Case study • Amazon KDP & beauty</h3>
+          <p><strong>“Wood Therapy Glow” – AI-powered content system for a maderotherapy eBook</strong></p>
+          <p>Spec work • Solo practitioner • KDP + Instagram ecosystem</p>
           <ul>
             <li>Positioned the eBook as a premium, evidence-based guide (not a generic cellulite PDF).</li>
             <li>Turned the outline into a 30-day content ecosystem (Reels, carousels, nurture emails).</li>
             <li>Created a reusable prompt library for FAQs, objections and post-purchase emails.</li>
             <li>Mapped a simple funnel: Instagram → free checklist → eBook → 1:1 package.</li>
           </ul>
-          <p><strong>What this shows:</strong> systems thinking, reusable AI prompts, and a clear path from visibility to sales.</p>
-          <p><em>Spec work – designed for my portfolio.</em></p>
+          <p><em>What this shows: systems thinking, reusable AI prompts, and a clear path from visibility to sales.</em></p>
         </article>
 
-        <!-- CASE 2 -->
-        <article class="case-card">
-          <p class="case-tag">Case study • Hospitality & AI</p>
-          <h3 class="case-title">AI-powered content system for a luxury hotel in Dubai</h3>
-          <p class="case-metric">Spec work • 5★ beachfront hotel • Content system</p>
+        <article class="card">
+          <h3>Case study • Hospitality & AI</h3>
+          <p><strong>AI-powered content system for a luxury hotel in Dubai</strong></p>
+          <p>Spec work • 5★ beachfront hotel • Content system</p>
           <ul>
             <li>Mapped the full guest journey (dreaming → booking → stay → check-out).</li>
             <li>Designed prompt frameworks to turn shoot notes into captions & short-form scripts.</li>
             <li>Created shotlist templates for vertical video (lobby, suites, pool, spa, rooftop, restaurant).</li>
             <li>Built a weekly content system mixing lifestyle, offers and UGC-style posts.</li>
           </ul>
-          <p><strong>What this shows:</strong> understanding of guest journeys, ability to brief creators and support marketing teams, focus on consistency & time saved.</p>
-          <p><em>Spec work – designed for my portfolio.</em></p>
+          <p><em>What this shows: understanding of guest journeys, ability to brief creators and support marketing teams, focus on consistency & time saved.</em></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- AI VIDEO / SORA -->
+    <section id="ai-video" class="section">
+      <p class="section-tag">AI video</p>
+      <h2 class="section-title">Sora AI video experiments</h2>
+      <p class="section-intro">
+        I also experiment with AI-generated video using Sora. These demos show how I think about
+        storytelling, pacing and prompts for visual content – from hospitality to lifestyle and
+        digital products.
+      </p>
+
+      <div class="cards-grid">
+        <article class="card">
+          <h3>General Sora demo</h3>
+          <p>
+            A first exploration of Sora’s visual capabilities – pacing, camera moves and overall mood.
+          </p>
+          <video src="sora-demo.mp4" controls></video>
+        </article>
+
+        <article class="card">
+          <h3>Sora video #1 – Hospitality mood</h3>
+          <p>
+            A hotel-inspired sequence focused on atmosphere, small details and a warm luxury feeling.
+          </p>
+          <video src="sora-video-1.mp4" controls></video>
+        </article>
+
+        <article class="card">
+          <h3>Sora video #2 – Lifestyle & storytelling</h3>
+          <p>
+            A lifestyle-oriented demo to explore narrative rhythm and transitions for personal brands.
+          </p>
+          <video src="sora-video-2.mp4" controls></video>
+        </article>
+
+        <article class="card">
+          <h3>Sora video #3 – Digital product / KDP</h3>
+          <p>
+            A visual concept around digital products and eBooks, testing hooks and product-focused shots.
+          </p>
+          <video src="sora-video-3.mp4" controls></video>
+        </article>
+
+        <article class="card">
+          <h3>Sora video #4 – Experimental sequence</h3>
+          <p>
+            A more experimental piece to push Sora’s limits, textures and transitions before client work.
+          </p>
+          <video src="sora-video-4.mp4" controls></video>
         </article>
       </div>
     </section>
@@ -598,7 +549,7 @@
     <section id="kdp-training" class="section">
       <p class="section-tag">Amazon KDP</p>
       <h2 class="section-title">Amazon KDP training</h2>
-      <p class="hero-sub">
+      <p class="section-intro">
         Learn how to publish your first eBook on Amazon KDP in a few hours, step by step
         with me (Elo B). Choose the French or English version of the program.
       </p>
@@ -612,7 +563,6 @@
         </a>
       </div>
     </section>
-
   </main>
 
   <footer>
