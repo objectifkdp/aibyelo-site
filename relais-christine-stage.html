@@ -18,6 +18,33 @@
       --radius: 14px;
       --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.12);
     }
+/* Galerie photos Relais Christine */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.photo-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+}
+
+.photo-card img {
+  width: 100%;
+  display: block;
+}
+
+.photo-card figcaption {
+  padding: 0.75rem 1rem 1rem;
+  font-size: 0.88rem;
+  color: #3a3027;
+  background: #ffffff;
+}
 
     * {
       box-sizing: border-box;
@@ -577,5 +604,6 @@ body {
   </main>
 </body>
 </html>
+
 
 
