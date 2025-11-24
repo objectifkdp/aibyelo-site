@@ -18,88 +18,8 @@
       --radius: 14px;
       --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.12);
     }
-/* Galerie photos Relais Christine */
-    <section id="galerie" class="section">
-<section id="galerie" class="section">
-  <h2>Galerie photos</h2>
-  <p>
-    Voici quelques photos prises pendant mon stage, pour montrer l’atmosphère de l’hôtel
-    Relais Christine et les différents espaces que j’ai découverts.
-  </p>
 
-  <div class="photo-grid">
-    <figure class="photo-card">
-      <img src="relais-plaque-relais-chateaux.jpg" alt="Plaque Relais & Châteaux à l’entrée de l’hôtel Relais Christine">
-      <figcaption>
-        La plaque <strong>Relais &amp; Châteaux</strong> à l’entrée, symbole d’excellence et de raffinement.
-      </figcaption>
-    </figure>
-
-    <figure class="photo-card">
-      <img src="relais-charriot-luggage.jpg" alt="Entrée pavée de l’hôtel Relais Christine avec le chariot à bagages doré">
-      <figcaption>
-        L’entrée pavée de l’hôtel avec le chariot à bagages doré et les statues qui accueillent les clients.
-      </figcaption>
-    
-    <figure class="photo-card">
-      <img src="relais-escalier.jpg" alt="Escalier de l’hôtel Relais Christine avec moquette florale et éclairage mural">
-      <figcaption>
-        L’escalier monumental recouvert d’une moquette florale, mis en valeur par l’éclairage mural.
-      </figcaption>
-    </figure>
-
-    <!-- Spa Guerlain – 3 photos -->
-    <figure class="photo-card">
-      <img src="relais-spa-guerlain-1.jpg" alt="Table de parfums Guerlain au spa de l’hôtel Relais Christine">
-      <figcaption>
-        Le spa <strong>Guerlain</strong>&nbsp;: table de parfums entourée de plantes exotiques et de pierres apparentes.
-      </figcaption>
-    </figure>
-
-    <figure class="photo-card">
-      <img src="relais-spa-guerlain-2.jpg" alt="Salon voûté en pierre du spa Guerlain au Relais Christine">
-      <figcaption>
-        Le salon voûté du spa Guerlain, avec ses canapés confortables et son ambiance tamisée.
-      </figcaption>
-    </figure>
-
-    <figure class="photo-card">
-      <img src="relais-spa-guerlain-3.jpg" alt="Détail supplémentaire du spa Guerlain au Relais Christine">
-      <figcaption>
-        Détail supplémentaire du spa Guerlain, qui montre le soin apporté à la décoration et à la lumière.
-      </figcaption>
-    </figure>
-  </div>
-</section>
-
-
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.photo-card {
-  background: #ffffff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
-}
-
-.photo-card img {
-  width: 100%;
-  display: block;
-}
-
-.photo-card figcaption {
-  padding: 0.75rem 1rem 1rem;
-  font-size: 0.88rem;
-  color: #3a3027;
-  background: #ffffff;
-}
-
+    /* Reset de base */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -317,44 +237,33 @@
       border: 1px solid rgba(151,130,106,0.6);
     }
 
-    /* GALLERIE */
+    /* Galerie photos (nouvelles images renommées) */
 
-    .gallery-grid {
+    .photo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
     }
 
-    .gallery-item {
+    .photo-card {
+      background: #ffffff;
+      border-radius: 18px;
       overflow: hidden;
-      border-radius: 14px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
       border: 1px solid var(--border);
-      background: #fdf7ef;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-      position: relative;
     }
 
-    .gallery-item img {
+    .photo-card img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
+      display: block;
     }
 
-    .gallery-item:hover img {
-      transform: scale(1.04);
-    }
-
-    .gallery-caption {
-      position: absolute;
-      left: 10px;
-      bottom: 8px;
-      font-size: 0.72rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255,253,249,0.92);
-      color: var(--muted);
-      border: 1px solid rgba(208,189,167,0.9);
+    .photo-card figcaption {
+      padding: 0.75rem 1rem 1rem;
+      font-size: 0.88rem;
+      color: #3a3027;
+      background: #ffffff;
     }
 
     /* CONCLUSION */
@@ -395,12 +304,7 @@
     }
   </style>
 </head>
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f7f2ea;           /* fond clair crème */
-  color: #2b2420;                /* texte brun doux */
-}
+<body>
   <main class="page">
     <!-- HERO -->
     <section class="hero">
@@ -537,97 +441,52 @@ body {
       </article>
     </section>
 
-    <!-- 04 · GALLERIE PHOTO -->
-    <section class="section">
+    <!-- 04 · GALERIE PHOTO -->
+    <section class="section" id="galerie">
       <div class="section-header">
         <h2 class="section-title">04 · Quelques photos</h2>
-        <section id="galerie" class="section">
-  <h2>Galerie photos</h2>
-  <p>
-    Voici quelques photos prises pendant mon stage, pour montrer l’atmosphère de l’hôtel
-    Relais Christine et les espaces que j’ai découverts.
-  </p>
-
-  <div class="photo-grid">
-    <figure class="photo-card">
-      <img src="relais-plaque-relais-chateaux.jpg" alt="Plaque Relais & Châteaux à l’entrée de l’hôtel Relais Christine">
-      <figcaption>Plaques Relais & Châteaux et sélection Michelin 2024 à l’entrée de l’hôtel.</figcaption>
-    </figure>
-
-    <figure class="photo-card">
-      <img src="relais-charriot-luggage.jpg" alt="Entrée pavée de l’hôtel Relais Christine avec le chariot à bagages doré">
-      <figcaption>L’entrée pavée de l’hôtel avec le chariot à bagages doré et les statues.</figcaption>
-    </figure>
-
-    <figure class="photo-card">
-      <img src="relais-cour-eline.jpg" alt="Eline dans la cour intérieure de l’hôtel Relais Christine">
-      <figcaption>Eline dans la cour intérieure, au milieu de la végétation et du mobilier de jardin.</figcaption>
-    </figure>
-
-    <figure class="photo-card">
-      <img src="relais-salon-rouge.jpg" alt="Salon rouge de l’hôtel Relais Christine avec canapé velours et lustre en cristal">
-      <figcaption>Le salon rouge : canapé en velours, marbre au sol et grand lustre en cristal.</figcaption>
-    </figure>
-
-    <figure class="photo-card">
-      <img src="relais-escalier.jpg" alt="Escalier de l’hôtel Relais Christine avec moquette florale et éclairage mural">
-      <figcaption>L’escalier monumental recouvert d’une moquette florale, éclairé par des appliques murales.</figcaption>
-    </figure>
-
-    <figure class="photo-card">
-      <img src="relais-spa-guerlain-1.jpg" alt="Table de parfums Guerlain au spa de l’hôtel Relais Christine">
-      <figcaption>Le spa Guerlain : table de parfums entourée de plantes et de pierres apparentes.</figcaption>
-    </figure>
-
-    <figure class="photo-card">
-      <img src="relais-spa-guerlain-2.jpg" alt="Salon voûté en pierre du spa Guerlain au Relais Christine">
-      <figcaption>Le salon voûté du spa Guerlain, avec canapés, table basse et ambiance tamisée.</figcaption>
-    </figure>
-  </div>
-</section>
-
         <p class="section-subtitle">Ambiance du lieu et détails observés pendant le stage.</p>
       </div>
 
-      <div class="gallery-grid">
-        <figure class="gallery-item">
-          <img src="PHOTO-2025-11-16-20-55-10 7.jpeg" alt="Entrée de l'hôtel avec plaque Michelin">
-          <figcaption class="gallery-caption">Entrée &amp; plaque Michelin</figcaption>
+      <p>
+        Voici quelques photos prises pendant mon stage, pour montrer l’atmosphère de l’hôtel
+        Relais Christine et les espaces que j’ai découverts.
+      </p>
+
+      <div class="photo-grid">
+        <figure class="photo-card">
+          <img src="relais-plaque-relais-chateaux.jpg" alt="Plaque Relais & Châteaux à l’entrée de l’hôtel Relais Christine">
+          <figcaption>Plaques Relais &amp; Châteaux et sélection Michelin 2024 à l’entrée de l’hôtel.</figcaption>
         </figure>
 
-        <figure class="gallery-item">
-          <img src="PHOTO-2025-11-16-20-55-11 2.jpeg" alt="Cour intérieure du Relais Christine">
-          <figcaption class="gallery-caption">Cour intérieure</figcaption>
+        <figure class="photo-card">
+          <img src="relais-charriot-luggage.jpg" alt="Entrée pavée de l’hôtel Relais Christine avec le chariot à bagages doré">
+          <figcaption>L’entrée pavée de l’hôtel avec le chariot à bagages doré et les statues.</figcaption>
         </figure>
 
-        <figure class="gallery-item">
-          <img src="PHOTO-2025-11-24-08-58-51.jpeg" alt="Canapé rouge et lustre en cristal dans le lobby de l'hôtel">
-          <figcaption class="gallery-caption">Lobby &amp; salon</figcaption>
+        <figure class="photo-card">
+          <img src="relais-cour-eline.jpg" alt="Eline dans la cour intérieure de l’hôtel Relais Christine">
+          <figcaption>Eline dans la cour intérieure, au milieu de la végétation et du mobilier de jardin.</figcaption>
         </figure>
 
-        <figure class="gallery-item">
-          <img src="PHOTO-2025-11-24-08-58-51 2.jpeg" alt="Escalier intérieur décoré de tapis à motifs">
-          <figcaption class="gallery-caption">Escalier principal</figcaption>
+        <figure class="photo-card">
+          <img src="relais-salon-rouge.jpg" alt="Salon rouge de l’hôtel Relais Christine avec canapé velours et lustre en cristal">
+          <figcaption>Le salon rouge : canapé en velours, marbre au sol et grand lustre en cristal.</figcaption>
         </figure>
 
-        <figure class="gallery-item">
-          <img src="PHOTO-2025-11-24-12-32-13.jpeg" alt="Table de parfums dans l'espace Guerlain">
-          <figcaption class="gallery-caption">Sélection de parfums</figcaption>
+        <figure class="photo-card">
+          <img src="relais-escalier.jpg" alt="Escalier de l’hôtel Relais Christine avec moquette florale et éclairage mural">
+          <figcaption>L’escalier monumental recouvert d’une moquette florale, éclairé par des appliques murales.</figcaption>
         </figure>
 
-        <figure class="gallery-item">
-          <img src="PHOTO-2025-11-24-12-32-13 2.jpeg" alt="Espace parfums sous voûte en pierre">
-          <figcaption class="gallery-caption">Spa Guerlain</figcaption>
+        <figure class="photo-card">
+          <img src="relais-spa-guerlain-1.jpg" alt="Table de parfums Guerlain au spa de l’hôtel Relais Christine">
+          <figcaption>Le spa Guerlain : table de parfums entourée de plantes et de pierres apparentes.</figcaption>
         </figure>
 
-        <figure class="gallery-item">
-          <img src="PHOTO-2025-11-24-12-32-13 3.jpeg" alt="Console avec maquillage et pinceaux">
-          <figcaption class="gallery-caption">Maquillage &amp; soins</figcaption>
-        </figure>
-
-        <figure class="gallery-item">
-          <img src="PHOTO-2025-11-24-12-32-13 4.jpeg" alt="Canapé bleu devant une vitrine de flacons">
-          <figcaption class="gallery-caption">Salon cosy</figcaption>
+        <figure class="photo-card">
+          <img src="relais-spa-guerlain-2.jpg" alt="Salon voûté en pierre du spa Guerlain au Relais Christine">
+          <figcaption>Le salon voûté du spa Guerlain, avec canapés, table basse et ambiance tamisée.</figcaption>
         </figure>
       </div>
     </section>
@@ -658,9 +517,3 @@ body {
   </main>
 </body>
 </html>
-
-
-
-
-
-
