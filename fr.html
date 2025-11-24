@@ -215,7 +215,7 @@
       color: rgba(245, 233, 221, 0.8);
     }
 
-    /* Services */
+    /* Cards / grid */
 
     .cards-grid {
       display: grid;
@@ -254,6 +254,13 @@
       margin-bottom: 0.35rem;
     }
 
+    .card video {
+      width: 100%;
+      border-radius: 0.8rem;
+      margin-top: 0.75rem;
+      display: block;
+    }
+
     /* Contact */
 
     .contact-box {
@@ -289,6 +296,18 @@
       color: rgba(245, 233, 221, 0.7);
     }
 
+    figure { margin: 0; }
+    figure img {
+      width: 100%;
+      border-radius: 1rem;
+      display: block;
+    }
+    figure figcaption {
+      font-size: 0.82rem;
+      color: rgba(245, 233, 221, 0.8);
+      margin-top: 0.4rem;
+    }
+
     @media (max-width: 800px) {
       .hero {
         grid-template-columns: 1fr;
@@ -313,6 +332,7 @@
         <a href="#services">Ateliers IA</a>
         <a href="#about">À propos</a>
         <a href="#kdp">Amazon KDP</a>
+        <a href="#sora">Sora</a>
         <a href="index.html">English</a>
       </nav>
     </div>
@@ -380,7 +400,6 @@
       </p>
 
       <div class="cards-grid">
-        <!-- Atelier découverte -->
         <article class="card">
           <h3>Atelier Découverte IA & ChatGPT</h3>
           <p>
@@ -395,7 +414,6 @@
           </ul>
         </article>
 
-        <!-- Atelier eBook -->
         <article class="card">
           <h3>Atelier “Créer ton eBook avec l’IA”</h3>
           <p>
@@ -411,7 +429,6 @@
           </ul>
         </article>
 
-        <!-- Accompagnement 1:1 -->
         <article class="card">
           <h3>Accompagnement individuel IA (1:1)</h3>
           <p>
@@ -428,7 +445,7 @@
       </div>
     </section>
 
-    <!-- ABOUT FR -->
+    <!-- ABOUT FR AVEC PHOTO -->
     <section id="about" class="section">
       <p class="section-tag">À propos</p>
       <h2 class="section-title">Qui suis-je ?</h2>
@@ -440,6 +457,14 @@
 
       <div class="cards-grid">
         <article class="card">
+          <figure>
+            <!-- change le nom du fichier si besoin -->
+            <img src="elo-about.jpg" alt="Élodie à Dubaï" />
+            <figcaption>Élodie (“Elo B”) – AI content & automation, entre Paris et Dubaï.</figcaption>
+          </figure>
+        </article>
+
+        <article class="card">
           <h3>Mon côté “structure & process”</h3>
           <p>
             Depuis presque 10 ans, je travaille dans la gestion de formation et l’organisation de
@@ -450,9 +475,7 @@
             <li>Coordination d’équipes et de ressources.</li>
             <li>Goût pour les check-lists et les systèmes clairs.</li>
           </ul>
-        </article>
 
-        <article class="card">
           <h3>Mon côté “création & KDP”</h3>
           <p>
             En parallèle, j’ai publié plus de <strong>90 eBooks</strong> sur Amazon KDP dans
@@ -462,20 +485,6 @@
             <li>Habitude de passer d’une idée à un produit fini.</li>
             <li>Vision globale : contenu, mise en forme, publication.</li>
             <li>Compréhension des vraies contraintes du terrain (temps, énergie, budget).</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Ma vision de l’IA</h3>
-          <p>
-            L’IA est un <strong>levier</strong>, pas une baguette magique. Bien utilisée, elle permet
-            d’alléger la charge mentale, de structurer les idées et de gagner du temps – sans perdre
-            votre style ni votre éthique.
-          </p>
-          <ul>
-            <li>Pas de “promesses miracles” ni de manipulations.</li>
-            <li>Respect de vos valeurs et de votre rythme.</li>
-            <li>Franchise : si je pense que l’IA n’est pas la bonne réponse, je vous le dis.</li>
           </ul>
         </article>
       </div>
@@ -519,6 +528,7 @@
         </article>
       </div>
     </section>
+
     <!-- VIDÉO IA / SORA -->
     <section id="sora" class="section">
       <p class="section-tag">Vidéo IA</p>
@@ -529,52 +539,45 @@
       </p>
 
       <div class="cards-grid">
-
-        <!-- DEMO 0 -->
         <article class="card">
           <h3>Demo Sora – aperçu général</h3>
           <p>
             Première exploration des capacités visuelles de Sora : rythme, mouvements de caméra et ambiance.
           </p>
-          <video src="sora-demo.mp4" controls style="width:100%;margin-top:0.75rem;border-radius:0.8rem;"></video>
+          <video src="sora-demo.mp4" controls></video>
         </article>
 
-        <!-- DEMO 1 -->
         <article class="card">
           <h3>Sora vidéo #1 – Ambiance hôtelière</h3>
           <p>
             Séquence inspirée d’un hôtel : accueil, détails, atmosphère chaleureuse et haut de gamme.
           </p>
-          <video src="sora-video-1.mp4" controls style="width:100%;margin-top:0.75rem;border-radius:0.8rem;"></video>
+          <video src="sora-video-1.mp4" controls></video>
         </article>
 
-        <!-- DEMO 2 -->
         <article class="card">
           <h3>Sora vidéo #2 – Lifestyle & storytelling</h3>
           <p>
             Vidéo lifestyle pour explorer le rythme narratif, les transitions et le côté “aspirationnel”.
           </p>
-          <video src="sora-video-2.mp4" controls style="width:100%;margin-top:0.75rem;border-radius:0.8rem;"></video>
+          <video src="sora-video-2.mp4" controls></video>
         </article>
 
-        <!-- DEMO 3 -->
         <article class="card">
           <h3>Sora vidéo #3 – Promo eBook / KDP</h3>
           <p>
             Concept de vidéo autour d’un eBook ou produit digital, pensée pour accompagner un lancement KDP.
           </p>
-          <video src="sora-video-3.mp4" controls style="width:100%;margin-top:0.75rem;border-radius:0.8rem;"></video>
+          <video src="sora-video-3.mp4" controls></video>
         </article>
 
-        <!-- DEMO 4 -->
         <article class="card">
           <h3>Sora vidéo #4 – Séquence expérimentale</h3>
           <p>
             Séquence plus expérimentale pour tester les limites créatives de Sora avant un usage client.
           </p>
-          <video src="sora-video-4.mp4" controls style="width:100%;margin-top:0.75rem;border-radius:0.8rem;"></video>
+          <video src="sora-video-4.mp4" controls></video>
         </article>
-
       </div>
     </section>
 
